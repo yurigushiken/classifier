@@ -2,7 +2,7 @@
 
 Working document for writing up the classifier acquisition study. Organized by standard empirical manuscript sections. Updated as the pipeline matures.
 
-Last updated: 2026-02-05
+Last updated: 2026-02-06
 
 ---
 
@@ -38,7 +38,7 @@ Mandarin Chinese uses numeral classifiers (measure words) between numerals/demon
 - Output: `reports/phase1/phase1_corpus_stats.csv`, summary statistics
 
 ### 2.3 Phase 2: Deterministic Extraction of Classifier Contexts
-- **Target classifiers:** 33 classifiers drawn from standard Mandarin reference grammars:
+- **Target classifiers:** 34 classifiers drawn from standard Mandarin reference grammars:
   个, 条, 只, 本, 张, 位, 头, 件, 年, 次, 天, 元, 下, 块, 岁, 名, 句, 家, 片, 份, 分, 部, 场, 把, 根, 颗, 辆, 种, 笔, 群, 对, 架, 组, 碗
 - **Extraction logic:** For each classifier token in the corpus, the immediately preceding token is checked. If the preceding token's POS tag indicates a numeral (`num*`), determiner (`det`), or demonstrative pronoun (`pro:dem`), the row is included. Otherwise it is rejected.
 - **SQL join:** `token c JOIN token p ON p.utterance_id = c.utterance_id AND p.token_order = c.token_order - 1`
@@ -57,15 +57,16 @@ Mandarin Chinese uses numeral classifiers (measure words) between numerals/demon
 - **Concurrency:** asyncio.Semaphore, MAX_CONCURRENT=10
 
 #### Prompt Design (iterative)
-The system prompt was refined through 4 iterations on a 20-row focused validation sample enriched with high-risk cases (flower/花 nouns, compound nouns, demonstrative-copula constructions, multi-classifier utterances).
+The system prompt was refined through 5 iterations on focused and random 20-row validation samples enriched with high-risk cases (flower nouns, compound nouns, demonstrative-copula constructions, and multi-classifier utterances).
 
 Key prompt features (final version):
-1. **Five numbered analysis rules** covering noun identification, convention lookup, classifier type, overuse judgment, and demonstrative-copula disambiguation
-2. **Compound noun instruction** — treat multi-morpheme nouns as units (图画书 not 书)
-3. **Focus constraint** — analyze only the target classifier instance following the specified Preceding Word; no list outputs
-4. **Output format rules** — identified_noun in Simplified Chinese; conventional_classifier in both pinyin and Simplified Chinese (dual columns)
-5. **Four few-shot examples** matching the actual input format (Chinese characters + POS tags), covering: overuse case (个 for books), correct-个 case (个 for people), specific-classifier case (条 for fish), and OMITTED/demonstrative case
-6. **One-sentence rationale cap** to control output length
+1. **Six numbered analysis rules** covering noun identification, convention lookup, classifier type, overuse judgment, demonstrative-copula disambiguation, and review-flag assignment.
+2. **Compound noun instruction** to treat multi-morpheme nouns as single units.
+3. **Focus constraint** to analyze only the target classifier instance following the specified Preceding Word (single-object JSON output).
+4. **Output format rules**: identified_noun in Simplified Chinese, conventional_classifier in pinyin, and conventional_classifier_zh in Simplified Chinese.
+5. **Five few-shot examples** matching real input format (Chinese + POS tags), including one flagged borderline case.
+6. **One-sentence rationale cap** to control output length.
+7. **Review flags** (`flag_for_review`, `flag_reason`) for four narrow human-review triggers.
 
 #### Output Schema (per row)
 | Field | Description |
@@ -75,11 +76,14 @@ Key prompt features (final version):
 | conventional_classifier_zh | Standard adult classifier, in Simplified Chinese |
 | classifier_type | "General" if token is 个, "Specific" otherwise |
 | overuse_of_ge | True if 个 was used where a specific classifier is conventional; False otherwise |
+| flag_for_review | Boolean flag for prioritized human review |
+| flag_reason | Trigger code: colloquial_tolerance, disputed_convention, implicit_noun_inference, or multi_instance_disambiguation |
 | rationale | One-sentence explanation of the judgment |
 
 #### Computed columns (pre-inference)
 | Field | Description |
 |-------|-------------|
+| specific_semantic_class | Deterministic classifier-semantic class from token lookup (e.g., general, animacy, shape, temporal_event) |
 | age_years | Age in decimal years (age_days / 365.25, rounded to 1 decimal) |
 | age_available | Boolean flag: True if age metadata exists in source |
 
@@ -92,6 +96,7 @@ Key prompt features (final version):
 | v2 | Focus 20 (flower) | Added Focus Constraint, noun standardization rule | 0 list outputs, all nouns in Chinese. 20/20 clean. |
 | v3 | Focus 20 (flower) | Added dual classifier columns, demonstrative-copula rule, compound noun rule, speaker-neutral wording, reformatted examples, rationale cap. Temperature lowered to 0.3. | 17/20 clean; 3 malformed rows on multi-noun utterances |
 | v4 | Focus 20 + Random 20 | Added reasoning.effort="medium". Benchmarked 3 models. | All models: 20/20 clean on both samples |
+| v5 | PI Random 20 (seed=99) | Added review flags and one additional few-shot example for borderline colloquial cases. | 20/20 clean; 2/20 flagged for human review |
 
 #### Model benchmark (v4, reasoning=medium)
 | Metric | DeepSeek v3.2 | Codex 5.2 | Kimi k2.5 |
@@ -158,7 +163,7 @@ Age ranges from 1.2 to 10.5 years (mean 4.2, median 4.0). Peak data density at 3
 | 7+ yrs | 2,010 | 3.25% |
 
 ### 3.4 Utterance Complexity
-34% of rows (24,004) come from multi-classifier utterances (6,626 unique utterances generating 2+ rows each). 66% come from single-classifier utterances.
+11.4% of rows (8,045) come from multi-classifier utterances (3,735 unique utterances generating 2+ rows each). 88.6% come from single-classifier utterances.
 
 ### 3.5 Estimated OMITTED Prevalence
 ~23.4% of rows (~16,520) have no noun following the classifier. These represent demonstrative/anaphoric uses (这个, 那个), bare counting (两个), and utterance-final ellipsis. These rows will return OMITTED from the LLM and contribute no classifier-noun pairing data.

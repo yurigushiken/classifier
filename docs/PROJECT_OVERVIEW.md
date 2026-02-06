@@ -24,13 +24,13 @@ overuse of general classifiers, and developmental patterns.
 - Phase 3 annotated tables (CSV) produced via LLM inference.
 - Focus samples for targeted validation.
 
-## Current Status (2026-02-05)
+## Current Status (2026-02-06)
 - Phase 1 complete: inventory and counts generated via childes-db (2021.1).
 - Phase 2 complete: monolingual Mandarin extraction with Speaker_Code/Speaker_Role columns (70,655 rows).
-- Phase 3 prompt finalized through 4 iterations (v1-v4) on focused + random validation samples.
+- Phase 3 prompt finalized through 5 iterations (v1-v5) on focused + random validation samples.
 - Three models benchmarked (DeepSeek v3.2-speciale, GPT-5.2-Codex, Kimi k2.5) — all 20/20 on both test sets.
 - DeepSeek v3.2-speciale selected for production run.
-- Pipeline supports: reasoning.effort="medium", temperature=0.3, dual classifier columns (pinyin + Chinese), age_years/age_available computed columns.
+- Pipeline supports: reasoning.effort="medium", temperature=0.3, dual classifier columns (pinyin + Chinese), deterministic specific_semantic_class, age_years/age_available computed columns, and review flags (flag_for_review/flag_reason).
 - Data profiling and pre-run analysis in progress.
 
 ## Key Outputs

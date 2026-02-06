@@ -24,6 +24,9 @@
 - Concurrency safety added via asyncio.Semaphore (MAX_CONCURRENT=10).
 - age_years, age_available computed columns added.
 - parse-retry handling added for malformed JSON responses.
+- Prompt v5 finalized: six analysis rules, five few-shot examples, and narrow human-review flags (`flag_for_review`, `flag_reason`).
+- Deterministic `specific_semantic_class` taxonomy added in Phase 2 and included in Phase 3 prompt context.
+- PI random review sample (seed=99, n=20) generated and annotated for website review (`reports/phase3/phase3_pi_review_results.csv`).
 
 ## 2026-02-05
 - Phase 1 scripts and reports created.

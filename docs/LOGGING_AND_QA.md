@@ -22,8 +22,8 @@
 - Track anomalies (list outputs, multiple noun pairs) for prompt refinement.
 
 ## Known Risks
-- Multi-noun utterances can yield list outputs from the model.
-- Noun identification may mix Chinese vs. pinyin in responses.
+- Multi-instance utterances can still return malformed JSON in rare cases; parse-retry is enabled, but failures should be logged and manually reviewed.
+- Borderline classifier conventions (colloquial vs. prescriptive) can vary across speakers/corpora and should be checked via `flag_for_review`.
 - Ellipsis contexts can blur classifier use.
 
 ## Future Enhancements

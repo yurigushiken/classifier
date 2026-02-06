@@ -56,5 +56,6 @@ All models use `reasoning.effort = "medium"` and `temperature = 0.3`.
 ## Prompt Control
 - Prompt lives in src/classifier_pipeline/prompts.py
 - System instruction is static for caching benefits.
-- JSON schema fields: identified_noun, conventional_classifier, conventional_classifier_zh, classifier_type, overuse_of_ge, rationale
+- JSON schema fields: identified_noun, conventional_classifier, conventional_classifier_zh, classifier_type, overuse_of_ge, rationale, flag_for_review, flag_reason
+- Deterministic context feature passed to prompt: specific_semantic_class
 - Computed columns (pre-inference): age_years, age_available

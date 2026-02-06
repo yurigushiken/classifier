@@ -56,7 +56,7 @@ This study examines how Mandarin-speaking children acquire numeral classifiers, 
   <span class="pipeline-tooltip">Query childes-db and extract classifier contexts with deterministic filters and metadata IDs.</span>
 </div>
 <span class="pipeline-arrow">&rarr;</span>
-<div class="pipeline-step active" tabindex="0">
+<div class="pipeline-step" tabindex="0">
   <strong>Phase 3</strong><br>LLM Annotation
   <span class="pipeline-tooltip">Annotate each row with noun, conventional classifier, overuse judgment, and review flags.</span>
 </div>
@@ -101,4 +101,3 @@ The pipeline has completed Phases 1 and 2 (corpus inventory and deterministic ex
 | [Phase 2 Full Extraction (CSV)](data/phase2_extraction_full.csv) | 70,655 | Complete deterministic extraction (pre-annotation) |
 
 : {.striped .hover}
-
