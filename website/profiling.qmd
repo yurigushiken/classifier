@@ -131,7 +131,7 @@ Roughly **23.4%** of rows (about 16,520) have no noun following the classifier. 
 **28.1%** of rows (19,880) share the same (Utterance, Classifier, Determiner) triple. The most common, "这 个", appears 1,555 times. These are not errors; they reflect formulaic speech across speakers and sessions. Deduplication or speaker-level aggregation will be needed for statistical independence.
 
 ### Multi-Classifier Utterances
-**34%** of rows come from utterances containing 2+ classifier instances (6,626 unique utterances generating multiple rows each). The Focus Constraint in the LLM prompt ensures each row is annotated independently.
+**11.4%** of rows (8,045) come from utterances containing 2+ classifier instances (3,735 unique utterances generating multiple rows each). The Focus Constraint in the LLM prompt ensures each row is annotated independently.
 
 ### Corpus Coverage
 The Zhou family of corpora (Zhou1/2/3, ZhouAssessment, ZhouNarratives, ZhouDinner) contributes roughly 40% of all data. Top 5 corpora cover 63%.

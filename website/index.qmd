@@ -91,3 +91,13 @@ The pipeline has completed Phases 1 and 2 (corpus inventory and deterministic ex
 | Extraction method, prompt design, and validation | [Methods](methods.qmd) |
 
 : {.striped .hover}
+
+
+### Downloads
+
+| File | Rows | Description |
+|------|------|-------------|
+| [Phase 3 Annotated Sample (CSV)](data/phase3_pi_review_sample.csv) | 20 | LLM-annotated random sample with all output columns |
+| [Phase 2 Full Extraction (CSV)](data/phase2_extraction_full.csv) | 70,655 | Complete deterministic extraction (pre-annotation) |
+
+: {.striped .hover}
