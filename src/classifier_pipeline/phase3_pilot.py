@@ -24,6 +24,8 @@ OUTPUT_HEADERS = PHASE2_HEADERS + [
     "classifier_type",
     "overuse_of_ge",
     "rationale",
+    "flag_for_review",
+    "flag_reason",
 ]
 
 OPENROUTER_ALLOWED_MODELS = {
@@ -233,6 +235,9 @@ def _apply_response(row: dict[str, str], parsed: dict[str, object]) -> dict[str,
     row["overuse_of_ge"] = overuse_value
     row["Over use of Ge..."] = overuse_value
     row["rationale"] = parsed.get("rationale", "")
+    flag = normalize_overuse_value(parsed.get("flag_for_review"))
+    row["flag_for_review"] = flag if flag is not None else False
+    row["flag_reason"] = parsed.get("flag_reason", "") if row["flag_for_review"] else ""
     return row
 
 

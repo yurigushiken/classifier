@@ -63,7 +63,7 @@ All models scored **20/20 clean** on both the focused validation sample (20 rows
 - **Concurrency:** asyncio.Semaphore, MAX_CONCURRENT = 10
 
 
-### Prompt Design (4 iterations)
+### Prompt Design (5 iterations)
 
 ::: {.callout-note collapse="true"}
 ## Expand: Prompt Iteration History
@@ -74,18 +74,20 @@ All models scored **20/20 clean** on both the focused validation sample (20 rows
 | v2 | Added Focus Constraint + noun standardization | 20/20 clean |
 | v3 | Demonstrative-copula rule, dual CL columns, compound nouns, rationale cap. Temp lowered to 0.3 | 17/20 clean (3 malformed on multi-noun) |
 | v4 | Added reasoning.effort="medium". Benchmarked 3 models. | All models: 20/20 clean on both samples |
+| v5 | Added Rule 6: flag_for_review + flag_reason with 4 narrow trigger conditions. 5th few-shot example (flagged). | 20/20 clean, 2/20 flagged (10%) |
 
 : {.striped}
 :::
 
-### Key Prompt Features (Final v4)
+### Key Prompt Features (Final v5)
 
-1. **Five numbered analysis rules** covering noun identification, convention lookup, classifier type, overuse judgment, and demonstrative-copula disambiguation
+1. **Six numbered analysis rules** covering noun identification, convention lookup, classifier type, overuse judgment, demonstrative-copula disambiguation, and human review flagging
 2. **Compound noun instruction:** treat multi-morpheme nouns as units (图画书 not 书)
 3. **Focus constraint:** analyze only the specific target classifier instance following the specified Preceding Word
 4. **Dual output format:** `conventional_classifier` (pinyin) + `conventional_classifier_zh` (Chinese)
-5. **Four few-shot examples** matching actual input format (Chinese + POS tags)
+5. **Five few-shot examples** matching actual input format (Chinese + POS tags), including one flagged example
 6. **One-sentence rationale cap**
+7. **Human review flags** with 4 narrow trigger conditions: colloquial_tolerance, disputed_convention, implicit_noun_inference, multi_instance_disambiguation
 
 ### Output Schema
 
@@ -97,6 +99,8 @@ All models scored **20/20 clean** on both the focused validation sample (20 rows
 | `classifier_type` | `General` (个) or `Specific` |
 | `overuse_of_ge` | True if 个 was used where a specific classifier is conventional |
 | `rationale` | One-sentence explanation |
+| `flag_for_review` | True if the row warrants human verification |
+| `flag_reason` | Reason code: colloquial_tolerance, disputed_convention, implicit_noun_inference, or multi_instance_disambiguation |
 
 : {.striped .hover}
 

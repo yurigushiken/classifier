@@ -35,6 +35,8 @@ display_cols = [
     "conventional_classifier_zh",
     "classifier_type",
     "overuse_of_ge",
+    "flag_for_review",
+    "flag_reason",
     "rationale",
 ]
 
@@ -50,6 +52,8 @@ df_display.columns = [
     "Conv. CL",
     "CL Type",
     "Overuse?",
+    "Flag?",
+    "Flag Reason",
     "Rationale",
 ]
 
@@ -75,6 +79,7 @@ n_omitted = int((df["identified_noun"] == "OMITTED").sum())
 n_specific = int((df["classifier_type"] == "Specific").sum())
 n_general = int((df["classifier_type"] == "General").sum())
 n_child = int((df["Speaker_Role"] == "Target_Child").sum())
+n_flagged = int((df["flag_for_review"].astype(str).str.lower() == "true").sum())
 
 print(f"""
 ::: {{.callout-note}}
@@ -84,6 +89,7 @@ print(f"""
 |--------|-------|
 | Total rows | {n} |
 | Overuse of 个 detected | {n_overuse} |
+| Flagged for review | {n_flagged} |
 | OMITTED nouns | {n_omitted} |
 | General classifier (个) | {n_general} |
 | Specific classifier | {n_specific} |
@@ -149,5 +155,7 @@ show(
 | `classifier_type` | LLM (Phase 3) | General (个) or Specific |
 | `overuse_of_ge` | LLM (Phase 3) | True if 个 was used where a specific classifier is conventional |
 | `rationale` | LLM (Phase 3) | One-sentence explanation of the judgment |
+| `flag_for_review` | LLM (Phase 3) | True if the row should be verified by a human reviewer |
+| `flag_reason` | LLM (Phase 3) | Reason code: colloquial_tolerance, disputed_convention, implicit_noun_inference, or multi_instance_disambiguation |
 
 : {.striped .hover .column-ref}

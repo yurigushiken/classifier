@@ -14,6 +14,13 @@ Analysis Rules:
 
 5. Demonstrative-Copula Rule: When the target classifier appears in a demonstrative-copula construction (e.g., '这个是X', '那个是X'), the classifier modifies the implicit referent of the demonstrative, not the predicate noun. If the referent is not explicitly stated, return identified_noun as 'OMITTED'.
 
+6. Flag for Review: Set flag_for_review to true ONLY when one of these four specific conditions applies. Otherwise set it to false.
+   a. colloquial_tolerance: overuse_of_ge is true but the noun commonly accepts 个 in casual speech alongside its specific classifier (e.g., 杯子 often takes 个 colloquially instead of 只). The overuse judgment is technically correct but a human should verify whether to count it as a true error in child language.
+   b. disputed_convention: there is genuine uncertainty about which classifier is standard for this noun (e.g., 怪物, 肉圆). Multiple classifiers are defensible.
+   c. implicit_noun_inference: the noun is not explicitly spoken in the utterance but you inferred it from surrounding context. Do NOT flag OMITTED cases; only flag when you are returning an inferred noun.
+   d. multi_instance_disambiguation: the utterance contains two or more instances of the same Preceding Word + Classifier combination, making it ambiguous which instance is the target.
+Set flag_reason to the applicable code (e.g., "colloquial_tolerance") or "" if flag_for_review is false. Do not over-flag: most rows should have flag_for_review = false.
+
 Constraint: The utterance may contain multiple classifier phrases. Analyze ONLY the specific target classifier instance that follows the Preceding Word provided in the input. Do NOT output lists. Return a single JSON object for that specific target.
 
 Output Rules:
@@ -29,27 +36,33 @@ Input Context:
 Utterance: 一 个 书 (POS Structure: num cl n)
 Target Classifier: 个
 Preceding Word: 一
-Output: {"identified_noun": "书", "conventional_classifier": "ben", "conventional_classifier_zh": "本", "classifier_type": "General", "overuse_of_ge": true, "rationale": "Books require the specific classifier 'ben' (本)."}
+Output: {"identified_noun": "书", "conventional_classifier": "ben", "conventional_classifier_zh": "本", "classifier_type": "General", "overuse_of_ge": true, "rationale": "Books require the specific classifier 'ben' (本).", "flag_for_review": false, "flag_reason": ""}
 
 Input Context:
 Utterance: 这 个 人 在 看 书 (POS Structure: det cl n adv v n)
 Target Classifier: 个
 Preceding Word: 这
-Output: {"identified_noun": "人", "conventional_classifier": "ge", "conventional_classifier_zh": "个", "classifier_type": "General", "overuse_of_ge": false, "rationale": "'Ge' is the standard classifier for people."}
+Output: {"identified_noun": "人", "conventional_classifier": "ge", "conventional_classifier_zh": "个", "classifier_type": "General", "overuse_of_ge": false, "rationale": "'Ge' is the standard classifier for people.", "flag_for_review": false, "flag_reason": ""}
 
 Input Context:
 Utterance: 一 条 鱼 (POS Structure: num cl n)
 Target Classifier: 条
 Preceding Word: 一
-Output: {"identified_noun": "鱼", "conventional_classifier": "tiao", "conventional_classifier_zh": "条", "classifier_type": "Specific", "overuse_of_ge": false, "rationale": "Fish correctly takes the specific classifier 'tiao' (条)."}
+Output: {"identified_noun": "鱼", "conventional_classifier": "tiao", "conventional_classifier_zh": "条", "classifier_type": "Specific", "overuse_of_ge": false, "rationale": "Fish correctly takes the specific classifier 'tiao' (条).", "flag_for_review": false, "flag_reason": ""}
 
 Input Context:
 Utterance: 这 个 是 我的 (POS Structure: det cl v:cop pro:per)
 Target Classifier: 个
 Preceding Word: 这
-Output: {"identified_noun": "OMITTED", "conventional_classifier": "N/A", "conventional_classifier_zh": "N/A", "classifier_type": "General", "overuse_of_ge": false, "rationale": "Demonstrative-copula construction with no explicit referent noun."}
+Output: {"identified_noun": "OMITTED", "conventional_classifier": "N/A", "conventional_classifier_zh": "N/A", "classifier_type": "General", "overuse_of_ge": false, "rationale": "Demonstrative-copula construction with no explicit referent noun.", "flag_for_review": false, "flag_reason": ""}
 
-Return ONLY a valid JSON object with keys: identified_noun, conventional_classifier, conventional_classifier_zh, classifier_type, overuse_of_ge, rationale.
+Input Context:
+Utterance: 一 个 杯子 (POS Structure: num cl n)
+Target Classifier: 个
+Preceding Word: 一
+Output: {"identified_noun": "杯子", "conventional_classifier": "zhi", "conventional_classifier_zh": "只", "classifier_type": "General", "overuse_of_ge": true, "rationale": "Cups conventionally take 'zhi' (只), but 个 is widely accepted colloquially.", "flag_for_review": true, "flag_reason": "colloquial_tolerance"}
+
+Return ONLY a valid JSON object with keys: identified_noun, conventional_classifier, conventional_classifier_zh, classifier_type, overuse_of_ge, rationale, flag_for_review, flag_reason.
 """
 
 USER_TEMPLATE = """Input Context:

@@ -7,6 +7,11 @@ def test_system_instruction_contains_examples_and_schema():
     assert "overuse_of_ge" in SYSTEM_INSTRUCTION
 
 
+def test_system_instruction_contains_flag_fields():
+    assert "flag_for_review" in SYSTEM_INSTRUCTION
+    assert "flag_reason" in SYSTEM_INSTRUCTION
+
+
 def test_build_messages_includes_pos_tags():
     messages = build_messages(
         utterance="一 个 苹果",

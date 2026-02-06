@@ -67,6 +67,8 @@ def test_output_headers_include_new_fields():
         "classifier_token_order",
         "transcript_id",
         "determiner_type",
+        "flag_for_review",
+        "flag_reason",
     ]:
         assert field in OUTPUT_HEADERS
 
@@ -164,3 +166,39 @@ def test_apply_response_extracts_conventional_classifier_zh():
     assert out["conventional_classifier_zh"] == "本"
     assert out["age_available"] is True
     assert out["age_years"] == 1.0
+
+
+def test_apply_response_extracts_flag_fields():
+    row = {"Age": "365.25", "Classifier type": "", "Over use of Ge...": ""}
+    parsed = {
+        "identified_noun": "杯子",
+        "conventional_classifier": "ge",
+        "conventional_classifier_zh": "个",
+        "classifier_type": "General",
+        "overuse_of_ge": False,
+        "rationale": "Colloquially accepted.",
+        "flag_for_review": True,
+        "flag_reason": "colloquial_tolerance",
+    }
+
+    out = _apply_response(row, parsed)
+
+    assert out["flag_for_review"] is True
+    assert out["flag_reason"] == "colloquial_tolerance"
+
+
+def test_apply_response_defaults_flag_to_false():
+    row = {"Age": "365.25", "Classifier type": "", "Over use of Ge...": ""}
+    parsed = {
+        "identified_noun": "人",
+        "conventional_classifier": "ge",
+        "conventional_classifier_zh": "个",
+        "classifier_type": "General",
+        "overuse_of_ge": False,
+        "rationale": "Standard classifier.",
+    }
+
+    out = _apply_response(row, parsed)
+
+    assert out["flag_for_review"] is False
+    assert out["flag_reason"] == ""
