@@ -18,6 +18,8 @@ def test_build_messages_includes_pos_tags():
         classifier_token="个",
         determiner_or_number="一",
         pos_tags="num cl n",
+        specific_semantic_class="general",
     )
 
     assert "POS Structure: num cl n" in messages[1]["content"]
+    assert "Classifier Semantic Class: general" in messages[1]["content"]

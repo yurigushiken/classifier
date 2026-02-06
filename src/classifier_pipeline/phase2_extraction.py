@@ -23,6 +23,7 @@ OUTPUT_HEADERS = [
     "classifier_token_order",
     "transcript_id",
     "determiner_type",
+    "specific_semantic_class",
     "Classifier type",
     "Over use of Ge...",
 ]
@@ -38,6 +39,7 @@ REJECTED_HEADERS = [
     "Determiner/Numbers",
     "Determiner_POS",
     "Classifier",
+    "specific_semantic_class",
     "utterance_id",
     "utterance_order",
     "classifier_token_order",
@@ -92,6 +94,46 @@ INTERROGATIVE_TOKENS = frozenset({"几", "哪"})
 QUANTIFIER_TOKENS = frozenset({"每", "各"})
 
 
+# Classifier semantic classes are deterministic and classifier-token-based.
+# The taxonomy is designed for aggregation analyses (e.g., animacy vs shape vs temporal).
+SPECIFIC_SEMANTIC_CLASS_MAP = {
+    "个": "general",
+    "只": "animacy",
+    "头": "animacy",
+    "位": "animacy",
+    "名": "animacy",
+    "条": "shape",
+    "张": "shape",
+    "片": "shape",
+    "根": "shape",
+    "颗": "granular_piece",
+    "本": "artifact_function",
+    "部": "artifact_function",
+    "辆": "artifact_function",
+    "架": "artifact_function",
+    "把": "artifact_function",
+    "件": "artifact_function",
+    "碗": "container_portion",
+    "份": "container_portion",
+    "元": "measure_currency",
+    "分": "measure_currency",
+    "块": "measure_portion",
+    "年": "temporal_event",
+    "次": "temporal_event",
+    "天": "temporal_event",
+    "岁": "temporal_event",
+    "场": "event_occurrence",
+    "下": "event_occurrence",
+    "种": "type_kind",
+    "句": "discourse_unit",
+    "家": "institution_household",
+    "组": "collective",
+    "群": "collective",
+    "对": "collective",
+    "笔": "transaction_stroke",
+}
+
+
 def compute_determiner_type(token: str) -> str:
     """Classify a determiner/number token into a semantic type.
 
@@ -110,6 +152,13 @@ def compute_determiner_type(token: str) -> str:
     if token.startswith("第"):
         return "ordinal"
     return "numeral"
+
+
+def compute_specific_semantic_class(classifier: str) -> str:
+    token = classifier.strip()
+    if not token:
+        return "other"
+    return SPECIFIC_SEMANTIC_CLASS_MAP.get(token, "other")
 
 
 def is_number_or_determiner(part_of_speech: Optional[str]) -> bool:
@@ -153,6 +202,7 @@ def build_collection_clause(column: str, collections: Sequence[str]) -> tuple[st
 
 def build_output_row(record: dict[str, object]) -> dict[str, object]:
     determiner = record.get("determiner") or ""
+    classifier = str(record.get("classifier") or "")
     return {
         "File Name": record.get("file_name"),
         "Collection_Type": record.get("collection_type"),
@@ -162,18 +212,20 @@ def build_output_row(record: dict[str, object]) -> dict[str, object]:
         "Utterance": record.get("utterance"),
         "%gra": record.get("gra"),
         "Determiner/Numbers": determiner,
-        "Classifier": record.get("classifier"),
+        "Classifier": classifier,
         "utterance_id": record.get("utterance_id", ""),
         "utterance_order": record.get("utterance_order", ""),
         "classifier_token_order": record.get("classifier_token_order", ""),
         "transcript_id": record.get("transcript_id", ""),
         "determiner_type": compute_determiner_type(str(determiner)),
+        "specific_semantic_class": compute_specific_semantic_class(classifier),
         "Classifier type": "",
         "Over use of Ge...": "",
     }
 
 
 def build_rejected_row(record: dict[str, object]) -> dict[str, object]:
+    classifier = str(record.get("classifier") or "")
     return {
         "File Name": record.get("file_name"),
         "Collection_Type": record.get("collection_type"),
@@ -184,7 +236,8 @@ def build_rejected_row(record: dict[str, object]) -> dict[str, object]:
         "%gra": record.get("gra"),
         "Determiner/Numbers": record.get("determiner"),
         "Determiner_POS": record.get("determiner_pos"),
-        "Classifier": record.get("classifier"),
+        "Classifier": classifier,
+        "specific_semantic_class": compute_specific_semantic_class(classifier),
         "utterance_id": record.get("utterance_id", ""),
         "utterance_order": record.get("utterance_order", ""),
         "classifier_token_order": record.get("classifier_token_order", ""),

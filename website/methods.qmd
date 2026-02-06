@@ -98,9 +98,35 @@ All models scored **20/20 clean** on both the focused validation sample (20 rows
 | `conventional_classifier_zh` | Standard adult classifier (Simplified Chinese) |
 | `classifier_type` | `General` (个) or `Specific` |
 | `overuse_of_ge` | True if 个 was used where a specific classifier is conventional |
+| `specific_semantic_class` | Deterministic classifier semantic class from token lookup (e.g., general, animacy, shape, temporal_event) |
 | `rationale` | One-sentence explanation |
 | `flag_for_review` | True if the row warrants human verification |
 | `flag_reason` | Reason code: colloquial_tolerance, disputed_convention, implicit_noun_inference, or multi_instance_disambiguation |
+
+: {.striped .hover}
+
+
+## Schema Crosswalk (PI Design -> Current Pipeline)
+
+The table below maps the original PI spreadsheet vision to the current reproducible schema.
+
+| Original PI Column | Current Field(s) | Notes |
+|---|---|---|
+| `filename` | `File Name` | Same meaning (CHILDES transcript path). |
+| `line` | `utterance_order`, `classifier_token_order` | More precise than a single line number. |
+| `utterance` | `Utterance` | Same meaning. |
+| `个, 条, 只, ... , 碗` (wide classifier columns) | `Classifier` (long format) | Long format is canonical; each row = one classifier instance. |
+| `total_clf` | Derived from `utterance_id` grouping | Computable deterministically as count per utterance. |
+| `Age` | `Age`, `age_years`, `age_available` | `Age` is original days; years + missingness are computed fields. |
+| `%gra` | `%gra` | Same meaning (POS sequence). |
+| `Determiner/Numbers` | `Determiner/Numbers`, `determiner_type` | Added typed semantic label for analysis. |
+| `Classifier` | `Classifier` | Same meaning. |
+| `Classfifier type` | `classifier_type` (canonical), `Classifier type` (legacy) | Canonical snake_case + compatibility legacy column. |
+| `Which type of specific` | `specific_semantic_class` | Deterministic classifier-semantic taxonomy (not LLM-derived). |
+| `Oever use of Ge` | `overuse_of_ge` (canonical), `Over use of Ge...` (legacy) | Canonical snake_case + compatibility legacy column. |
+| `Conventional classifiers` | `conventional_classifier`, `conventional_classifier_zh` | Pinyin + Simplified Chinese forms. |
+| `Paired nouns` | `identified_noun` | Noun linked to target classifier, or `OMITTED`. |
+| `Meaning` | `rationale` | One-sentence LLM explanation. |
 
 : {.striped .hover}
 

@@ -13,6 +13,7 @@ import requests
 
 from classifier_pipeline.phase2_extraction import OUTPUT_HEADERS as PHASE2_HEADERS
 from classifier_pipeline.phase2_extraction import compute_determiner_type
+from classifier_pipeline.phase2_extraction import compute_specific_semantic_class
 from classifier_pipeline.prompts import build_messages
 
 OUTPUT_HEADERS = PHASE2_HEADERS + [
@@ -23,9 +24,9 @@ OUTPUT_HEADERS = PHASE2_HEADERS + [
     "conventional_classifier_zh",
     "classifier_type",
     "overuse_of_ge",
-    "rationale",
     "flag_for_review",
     "flag_reason",
+    "rationale",
 ]
 
 OPENROUTER_ALLOWED_MODELS = {
@@ -147,6 +148,8 @@ def _compute_age_fields(row: dict[str, str]) -> dict[str, str]:
             row["age_years"] = round(age_days / 365.25, 1)
     if not row.get("determiner_type"):
         row["determiner_type"] = compute_determiner_type(row.get("Determiner/Numbers", ""))
+    if not row.get("specific_semantic_class"):
+        row["specific_semantic_class"] = compute_specific_semantic_class(row.get("Classifier", ""))
     return row
 
 
@@ -213,12 +216,16 @@ def _build_messages(row: dict[str, str]) -> list[dict[str, str]]:
     classifier_token = row.get("Classifier", "")
     determiner = row.get("Determiner/Numbers", "")
     pos_tags = row.get("%gra", "")
+    semantic_class = row.get("specific_semantic_class", "")
+    if not semantic_class:
+        semantic_class = compute_specific_semantic_class(classifier_token)
 
     return build_messages(
         utterance=utterance,
         classifier_token=classifier_token,
         determiner_or_number=determiner,
         pos_tags=pos_tags,
+        specific_semantic_class=semantic_class,
     )
 
 
@@ -234,10 +241,10 @@ def _apply_response(row: dict[str, str], parsed: dict[str, object]) -> dict[str,
     overuse_value = overuse if overuse is not None else parsed.get("overuse_of_ge", "")
     row["overuse_of_ge"] = overuse_value
     row["Over use of Ge..."] = overuse_value
-    row["rationale"] = parsed.get("rationale", "")
     flag = normalize_overuse_value(parsed.get("flag_for_review"))
     row["flag_for_review"] = flag if flag is not None else False
     row["flag_reason"] = parsed.get("flag_reason", "") if row["flag_for_review"] else ""
+    row["rationale"] = parsed.get("rationale", "")
     return row
 
 

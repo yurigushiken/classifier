@@ -7,6 +7,7 @@
     build_output_row,
     build_rejected_row,
     compute_determiner_type,
+    compute_specific_semantic_class,
     is_number_or_determiner,
 )
 
@@ -73,6 +74,7 @@ def test_build_output_row():
     assert row["classifier_token_order"] == 2
     assert row["transcript_id"] == 678
     assert row["determiner_type"] == "demonstrative"
+    assert row["specific_semantic_class"] == "general"
     assert row["Classifier type"] == ""
     assert row["Over use of Ge..."] == ""
 
@@ -128,8 +130,14 @@ def test_build_rejected_row_includes_new_columns():
 
 
 def test_output_headers_include_new_columns():
-    for col in ["utterance_id", "utterance_order", "classifier_token_order",
-                "transcript_id", "determiner_type"]:
+    for col in [
+        "utterance_id",
+        "utterance_order",
+        "classifier_token_order",
+        "transcript_id",
+        "determiner_type",
+        "specific_semantic_class",
+    ]:
         assert col in OUTPUT_HEADERS
 
 
@@ -160,3 +168,24 @@ def test_compute_determiner_type_quantifiers():
 
 def test_compute_determiner_type_empty():
     assert compute_determiner_type("") == "unknown"
+
+
+def test_compute_specific_semantic_class_examples():
+    assert compute_specific_semantic_class("个") == "general"
+    assert compute_specific_semantic_class("只") == "animacy"
+    assert compute_specific_semantic_class("头") == "animacy"
+    assert compute_specific_semantic_class("条") == "shape"
+    assert compute_specific_semantic_class("张") == "shape"
+    assert compute_specific_semantic_class("本") == "artifact_function"
+    assert compute_specific_semantic_class("辆") == "artifact_function"
+    assert compute_specific_semantic_class("碗") == "container_portion"
+    assert compute_specific_semantic_class("天") == "temporal_event"
+
+
+def test_compute_specific_semantic_class_all_target_classifiers_covered():
+    uncovered = [clf for clf in FULL_CLASSIFIERS if compute_specific_semantic_class(clf) == "other"]
+    assert uncovered == []
+
+
+def test_compute_specific_semantic_class_unknown_defaults_to_other():
+    assert compute_specific_semantic_class("未知") == "other"

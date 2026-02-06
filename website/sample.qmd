@@ -36,6 +36,7 @@ display_cols = [
     "Speaker_Role",
     "age_years",
     "determiner_type",
+    "specific_semantic_class",
     "identified_noun",
     "conventional_classifier_zh",
     "classifier_type",
@@ -53,6 +54,7 @@ df_display.columns = [
     "Speaker",
     "Age (yr)",
     "Det Type",
+    "CL Semantic Class",
     "Noun",
     "Conv. CL",
     "CL Type",
@@ -150,6 +152,7 @@ show(
 | `classifier_token_order` | Phase 2 (SQL) | Token position of classifier in utterance |
 | `transcript_id` | Phase 2 (SQL) | Unique transcript ID from childes-db |
 | `determiner_type` | Computed | Semantic type: demonstrative, numeral, interrogative, ordinal, quantifier |
+| `specific_semantic_class` | Computed | Deterministic classifier semantic class (e.g., general, animacy, shape, temporal_event) |
 | `age_years` | Computed | Age in decimal years (age_days / 365.25) |
 | `age_available` | Computed | Whether age metadata exists |
 | `Classifier type` | LLM (Phase 3) | Legacy column; use `classifier_type` instead |

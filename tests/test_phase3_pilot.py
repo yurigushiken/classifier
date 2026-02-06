@@ -7,6 +7,7 @@ from classifier_pipeline.phase3_pilot import (
     OUTPUT_HEADERS,
     _compute_age_fields,
     _apply_response,
+    _build_messages,
     _request_payload_for_row,
     compute_throttle_delay,
     ensure_model_allowed,
@@ -67,10 +68,16 @@ def test_output_headers_include_new_fields():
         "classifier_token_order",
         "transcript_id",
         "determiner_type",
+        "specific_semantic_class",
         "flag_for_review",
         "flag_reason",
     ]:
         assert field in OUTPUT_HEADERS
+
+
+def test_output_headers_place_flags_before_rationale():
+    assert OUTPUT_HEADERS.index("flag_for_review") < OUTPUT_HEADERS.index("rationale")
+    assert OUTPUT_HEADERS.index("flag_reason") < OUTPUT_HEADERS.index("rationale")
 
 
 def test_retry_delay_uses_retry_after():
@@ -148,6 +155,20 @@ def test_compute_age_fields_preserves_existing_determiner_type():
     row = _compute_age_fields({"Age": "365.25", "Determiner/Numbers": "这", "determiner_type": "demonstrative"})
 
     assert row["determiner_type"] == "demonstrative"
+
+
+def test_compute_age_fields_backfills_specific_semantic_class():
+    row = _compute_age_fields({"Age": "365.25", "Classifier": "只"})
+
+    assert row["specific_semantic_class"] == "animacy"
+
+
+def test_build_messages_backfills_specific_semantic_class():
+    messages = _build_messages(
+        {"Utterance": "一 只 猫", "Classifier": "只", "Determiner/Numbers": "一", "%gra": "num cl n"}
+    )
+
+    assert "Classifier Semantic Class: animacy" in messages[1]["content"]
 
 
 def test_apply_response_extracts_conventional_classifier_zh():

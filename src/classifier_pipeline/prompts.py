@@ -22,6 +22,7 @@ Analysis Rules:
 Set flag_reason to the applicable code (e.g., "colloquial_tolerance") or "" if flag_for_review is false. Do not over-flag: most rows should have flag_for_review = false.
 
 Constraint: The utterance may contain multiple classifier phrases. Analyze ONLY the specific target classifier instance that follows the Preceding Word provided in the input. Do NOT output lists. Return a single JSON object for that specific target.
+Use the provided classifier semantic class as a coarse prior only; it supports consistency checks but must not override explicit utterance evidence.
 
 Output Rules:
 - Return identified_noun in Simplified Chinese characters. If the noun is not spoken, return 'OMITTED'.
@@ -69,6 +70,7 @@ USER_TEMPLATE = """Input Context:
 Utterance: {utterance} (POS Structure: {pos_tags})
 Target Classifier: {classifier_token}
 Preceding Word: {determiner_or_number}
+Classifier Semantic Class: {specific_semantic_class}
 """
 
 
@@ -77,12 +79,14 @@ def build_messages(
     classifier_token: str,
     determiner_or_number: str,
     pos_tags: str,
+    specific_semantic_class: str = "",
 ) -> list[dict[str, str]]:
     user_content = USER_TEMPLATE.format(
         utterance=utterance,
         pos_tags=pos_tags or "",
         classifier_token=classifier_token,
         determiner_or_number=determiner_or_number,
+        specific_semantic_class=specific_semantic_class or "",
     )
     return [
         {"role": "system", "content": SYSTEM_INSTRUCTION},
