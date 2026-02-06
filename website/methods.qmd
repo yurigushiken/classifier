@@ -167,6 +167,29 @@ All LLM-annotated results will require human verification. The `flag_for_review`
 :::
 
 
+## Manuscript Methods Draft (Working)
+
+*The following is a draft of the methods section for the manuscript. It is intended as a starting point for PI revision.*
+
+### Data
+
+Classifier contexts were drawn from the monolingual Mandarin Chinese corpora in the Child Language Data Exchange System (CHILDES, MacWhinney, 2000), accessed programmatically through childes-db version 2021.1 (Sanchez et al., 2019). All corpora in the Chinese collection were included. Cantonese and Min Nan corpora were excluded.
+
+### Extraction
+
+We identified 34 target numeral classifiers based on frequency in the corpus and relevance to the acquisition literature (Erbaugh, 1986). For each occurrence of a target classifier, we extracted the row if the immediately preceding token carried a numeral, determiner, or demonstrative pronoun part-of-speech tag. This deterministic filter yielded 70,655 classifier contexts from 18 corpora, spanning ages 1.2 to 10.5 years (mean 4.2, median 4.0). Target children produced 37% of classifier contexts, with the remainder from adult speakers (mothers, investigators, teachers, and others). Age metadata was missing for 12.4% of rows, primarily from the ZhouAssessment and LiZhou corpora.
+
+Each row was assigned a computed determiner type (demonstrative, numeral, interrogative, ordinal, or quantifier) and a deterministic classifier semantic class (e.g., general, animacy, shape, artifact function, temporal event) based on the classifier token.
+
+### LLM-Assisted Annotation
+
+Each classifier context was annotated using DeepSeek v3.2-speciale, a large language model accessed via the OpenRouter API (temperature = 0.3, reasoning effort = medium). The model was prompted to identify the noun modified by the target classifier, determine the conventional adult classifier for that noun, classify the classifier as General (个) or Specific, and judge whether overuse of the general classifier 个 had occurred. When the noun was absent or only implicitly understood from context, the model returned OMITTED. A demonstrative-copula rule instructed the model to return OMITTED for constructions such as 这个是X, where the classifier modifies an implicit referent rather than the predicate noun.
+
+The prompt was developed over five iterations, evaluated on a focused validation sample of 20 high-risk rows and a separate random sample of 20 rows. The final prompt included six analysis rules, five few-shot examples matching the actual input format (Chinese text with POS tags), a focus constraint restricting annotation to the specific target classifier instance, and a one-sentence rationale cap. Each row was also assigned a human review flag triggered by four narrow conditions: colloquial tolerance (个 is technically non-standard but widely accepted), disputed convention (genuine ambiguity about which classifier is standard), implicit noun inference (noun inferred from context rather than explicitly spoken), and multi-instance disambiguation (multiple identical classifier phrases in one utterance). Three candidate models (DeepSeek v3.2-speciale, GPT-5.2-Codex, and Kimi k2.5) all achieved 20/20 format completeness on both validation samples. DeepSeek was selected for production based on the cleanest noun identification and most consistent English-language rationales.
+
+All LLM-annotated results will undergo human verification. The flag-for-review column prioritizes rows most likely to require attention, but unflagged rows may still contain errors that fall outside the trigger conditions. Formal inter-annotator agreement scoring is planned for a subsequent validation phase.
+
+
 ## References
 
 - MacWhinney, B. (2000). *The CHILDES Project: Tools for Analyzing Talk*. Lawrence Erlbaum Associates.
