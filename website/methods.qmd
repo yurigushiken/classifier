@@ -5,7 +5,7 @@ title: "Methods"
 ## Data Source
 
 - **Corpus:** CHILDES / TalkBank (MacWhinney, 2000)
-- **Access:** childes-db (Sanchez et al., 2019) --- programmatic SQL access
+- **Access:** childes-db (Sanchez et al., 2019), programmatic SQL access
 - **Database version:** 2021.1
 - **Language:** Mandarin Chinese (zho); excludes Cantonese (yue) and Min Nan (nan)
 - **Collection filter:** `collection_name = 'Chinese'` (monolingual only)
@@ -72,7 +72,7 @@ All models scored **20/20 clean** on both the focused validation sample (20 rows
 |---------|---------|--------|
 | v1 | Initial few-shot + JSON schema | 2/20 list outputs, mixed noun format |
 | v2 | Added Focus Constraint + noun standardization | 20/20 clean |
-| v3 | Demonstrative-copula rule, dual CL columns, compound nouns, rationale cap. Temp &rarr; 0.3 | 17/20 clean (3 malformed on multi-noun) |
+| v3 | Demonstrative-copula rule, dual CL columns, compound nouns, rationale cap. Temp lowered to 0.3 | 17/20 clean (3 malformed on multi-noun) |
 | v4 | Added reasoning.effort="medium". Benchmarked 3 models. | All models: 20/20 clean on both samples |
 
 : {.striped}
@@ -81,9 +81,9 @@ All models scored **20/20 clean** on both the focused validation sample (20 rows
 ### Key Prompt Features (Final v4)
 
 1. **Five numbered analysis rules** covering noun identification, convention lookup, classifier type, overuse judgment, and demonstrative-copula disambiguation
-2. **Compound noun instruction** --- treat multi-morpheme nouns as units (图画书 not 书)
-3. **Focus constraint** --- analyze only the specific target classifier instance following the specified Preceding Word
-4. **Dual output format** --- `conventional_classifier` (pinyin) + `conventional_classifier_zh` (Chinese)
+2. **Compound noun instruction:** treat multi-morpheme nouns as units (图画书 not 书)
+3. **Focus constraint:** analyze only the specific target classifier instance following the specified Preceding Word
+4. **Dual output format:** `conventional_classifier` (pinyin) + `conventional_classifier_zh` (Chinese)
 5. **Four few-shot examples** matching actual input format (Chinese + POS tags)
 6. **One-sentence rationale cap**
 
@@ -106,16 +106,16 @@ All models scored **20/20 clean** on both the focused validation sample (20 rows
 ::: {.callout-warning}
 ## Limitations to Discuss
 
-1. **No ground-truth lookup table** --- the LLM relies on its own knowledge of conventional classifiers, which may vary for borderline nouns (e.g., 杯子, 肉圆, 怪物).
+1. **No ground-truth lookup table.** The LLM relies on its own knowledge of conventional classifiers, which may vary for borderline nouns (e.g., 杯子, 肉圆, 怪物).
 
-2. **Non-个 misuse undetected** --- `overuse_of_ge` only captures overuse of the general classifier. A child using the wrong specific classifier (e.g., 只 for 笔 instead of 支) is marked `overuse_of_ge = False`.
+2. **Non-个 misuse undetected.** `overuse_of_ge` only captures overuse of the general classifier. A child using the wrong specific classifier (e.g., 只 for 笔 instead of 支) is marked `overuse_of_ge = False`.
 
-3. **Multi-instance ambiguity** --- when an utterance contains multiple instances of the same Preceding Word + Classifier pair, the model may select either instance.
+3. **Multi-instance ambiguity.** When an utterance contains multiple instances of the same Preceding Word + Classifier pair, the model may select either instance.
 :::
 
 
 ## References
 
 - MacWhinney, B. (2000). *The CHILDES Project: Tools for Analyzing Talk*. Lawrence Erlbaum Associates.
-- Sanchez, A., Meylan, S. C., Braginsky, M., MacDonald, K. E., Yurovsky, D., & Frank, M. C. (2019). childes-db: A flexible and reproducible interface to the Child Language Data Exchange System. *Behavior Research Methods*, 51(4), 1928--1941.
-- Erbaugh, M. S. (1986). Taking stock: The development of Chinese noun classifiers historically and in young children. In C. Craig (Ed.), *Noun Classes and Categorization* (pp. 399--436). John Benjamins.
+- Sanchez, A., Meylan, S. C., Braginsky, M., MacDonald, K. E., Yurovsky, D., & Frank, M. C. (2019). childes-db: A flexible and reproducible interface to the Child Language Data Exchange System. *Behavior Research Methods*, 51(4), 1928-1941.
+- Erbaugh, M. S. (1986). Taking stock: The development of Chinese noun classifiers historically and in young children. In C. Craig (Ed.), *Noun Classes and Categorization* (pp. 399-436). John Benjamins.

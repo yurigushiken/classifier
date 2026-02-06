@@ -40,7 +40,7 @@ Investigating numeral classifier development in Mandarin-speaking children using
 
 ## Project Overview
 
-This study examines how Mandarin-speaking children acquire numeral classifiers, with particular focus on the **overgeneralization of the general classifier 个 (ge)**. Children acquiring Mandarin must learn which classifier conventionally pairs with which noun --- a well-documented developmental challenge.
+This study examines how Mandarin-speaking children acquire numeral classifiers, with particular focus on the **overgeneralization of the general classifier 个 (ge)**. Children acquiring Mandarin must learn which classifier conventionally pairs with which noun, a well-documented developmental challenge.
 
 
 ### Pipeline Architecture
@@ -78,7 +78,7 @@ Analysis
 
 ::: {.callout-note}
 ## Current Status
-The pipeline has completed Phases 1--2 (corpus inventory and deterministic extraction) and Phase 3 prompt validation. A **20-row random PI review sample** has been annotated with DeepSeek v3.2-speciale. The full 70,655-row production run is pending PI approval of the output schema and annotation quality.
+The pipeline has completed Phases 1 and 2 (corpus inventory and deterministic extraction) and Phase 3 prompt validation. A **20-row random PI review sample** has been annotated with DeepSeek v3.2-speciale. The full 70,655-row production run is pending PI approval of the output schema and annotation quality.
 :::
 
 

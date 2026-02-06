@@ -9,12 +9,17 @@ The Phase 2 extraction pulled all classifier contexts from monolingual Mandarin 
 ```{python}
 #| label: setup
 #| echo: false
+#| warning: false
+import warnings
+warnings.filterwarnings("ignore", module="itables")
+
 import pandas as pd
+from itables import show
 ```
 
 ::: {.callout-important}
 ## Dataset Scale
-**70,655** classifier contexts extracted from **18** CHILDES corpora using **33** target classifiers. Age range: **1.2 -- 10.5 years**. Missing age: **12.4%** (8,793 rows).
+**70,655** classifier contexts extracted from **18** CHILDES corpora using **33** target classifiers. Age range: **1.2 to 10.5 years**. Missing age: **12.4%** (8,793 rows).
 :::
 
 
@@ -31,8 +36,7 @@ classifier_data = pd.DataFrame({
     "Percentage": ["80.98%", "5.45%", "1.96%", "1.95%", "1.39%", "1.28%", "1.08%", "1.05%", "0.67%", "7.02%"],
 })
 
-from itables import show
-show(classifier_data, paging=False, searching=False, ordering=True, classes="display compact")
+show(classifier_data, paging=False, ordering=True, classes="display compact")
 ```
 
 ::: {.callout-note}
@@ -52,18 +56,18 @@ speaker_data = pd.DataFrame({
     "Percentage": ["37.12%", "34.86%", "9.92%", "5.87%", "5.32%", "4.69%", "0.95%", "1.27%"],
 })
 
-show(speaker_data, paging=False, searching=False, ordering=True, classes="display compact")
+show(speaker_data, paging=False, ordering=True, classes="display compact")
 ```
 
 ::: {.callout-tip}
 ## Child vs. Adult
-Target children produce **37.1%** of classifier contexts. Adult speech (all non-child roles) totals **~62.9%**, providing the acquisition input model for child-vs-adult comparison (RQ4).
+Target children produce **37.1%** of classifier contexts. Adult speech (all non-child roles) totals roughly **62.9%**, providing the acquisition input model for child-vs-adult comparison (RQ4).
 :::
 
 
 ## Age Distribution
 
-Age ranges from 1.2 to 10.5 years (mean 4.2, median 4.0). Peak data density is at 3--4 years. **8,793 rows (12.4%)** are missing age metadata, primarily from ZhouAssessment and LiZhou corpora.
+Age ranges from 1.2 to 10.5 years (mean 4.2, median 4.0). Peak data density is at ages 3 to 4. **8,793 rows (12.4%)** are missing age metadata, primarily from ZhouAssessment and LiZhou corpora.
 
 ```{python}
 #| label: age-dist
@@ -74,7 +78,7 @@ age_data = pd.DataFrame({
     "% of Age-Available": ["4.69%", "15.95%", "23.11%", "19.66%", "19.45%", "13.89%", "3.25%"],
 })
 
-show(age_data, paging=False, searching=False, ordering=True, classes="display compact")
+show(age_data, paging=False, ordering=True, classes="display compact")
 ```
 
 
@@ -91,7 +95,7 @@ det_data = pd.DataFrame({
     "determiner_type": ["demonstrative", "numeral", "demonstrative", "interrogative", "numeral", "numeral", "ordinal", "mixed"],
 })
 
-show(det_data, paging=False, searching=False, ordering=True, classes="display compact")
+show(det_data, paging=False, ordering=True, classes="display compact")
 ```
 
 ::: {.callout-note}
@@ -103,13 +107,13 @@ We have added a computed `determiner_type` column that classifies each preceding
 ## Data Quality Notes
 
 ### OMITTED Prevalence
-~**23.4%** of rows (~16,520) have no noun following the classifier. These represent demonstrative/anaphoric uses (这个, 那个), bare counting (两个), and utterance-final ellipsis. The LLM returns `OMITTED` for these rows.
+Roughly **23.4%** of rows (about 16,520) have no noun following the classifier. These represent demonstrative/anaphoric uses (这个, 那个), bare counting (两个), and utterance-final ellipsis. The LLM returns `OMITTED` for these rows.
 
 ### Duplicate Analysis
-**28.1%** of rows (19,880) share the same (Utterance, Classifier, Determiner) triple. The most common: "这 个" appears 1,555 times. These are not errors --- they reflect formulaic speech across speakers and sessions. Deduplication or speaker-level aggregation will be needed for statistical independence.
+**28.1%** of rows (19,880) share the same (Utterance, Classifier, Determiner) triple. The most common, "这 个", appears 1,555 times. These are not errors; they reflect formulaic speech across speakers and sessions. Deduplication or speaker-level aggregation will be needed for statistical independence.
 
 ### Multi-Classifier Utterances
 **34%** of rows come from utterances containing 2+ classifier instances (6,626 unique utterances generating multiple rows each). The Focus Constraint in the LLM prompt ensures each row is annotated independently.
 
 ### Corpus Coverage
-The Zhou family of corpora (Zhou1/2/3, ZhouAssessment, ZhouNarratives, ZhouDinner) contributes ~40% of all data. Top 5 corpora cover 63%.
+The Zhou family of corpora (Zhou1/2/3, ZhouAssessment, ZhouNarratives, ZhouDinner) contributes roughly 40% of all data. Top 5 corpora cover 63%.

@@ -4,16 +4,20 @@ title: "PI Review Sample"
 
 ## Annotated Sample (n = 20)
 
-A fresh random sample (seed = 99) drawn from the 70,655 Phase 2 rows, annotated by **DeepSeek v3.2-speciale** (temperature 0.3, reasoning effort = medium). This sample has not been seen during prompt development --- it is a blind test of annotation quality.
+A fresh random sample (seed = 99) drawn from the 70,655 Phase 2 rows, annotated by **DeepSeek v3.2-speciale** (temperature 0.3, reasoning effort = medium). This sample was not used during prompt development and serves as a blind test of annotation quality.
 
 ::: {.callout-tip}
 ## Interactive Table
-Use the search box to filter rows, click column headers to sort, and use pagination to browse. All 20 rows are shown with key annotation columns.
+Click column headers to sort, use the search box to filter, or scroll to browse. Key annotation columns are shown below; expand "Full Data" for all columns.
 :::
 
 ```{python}
 #| label: pi-review-table
 #| echo: false
+#| warning: false
+import warnings
+warnings.filterwarnings("ignore", module="itables")
+
 import pandas as pd
 from itables import show
 
@@ -51,16 +55,11 @@ df_display.columns = [
 
 show(
     df_display,
-    paging=True,
-    pageLength=10,
-    searching=True,
+    paging=False,
     ordering=True,
     scrollX=True,
-    columnDefs=[
-        {"width": "250px", "targets": [0]},
-        {"width": "200px", "targets": [10]},
-    ],
-    classes="display compact",
+    classes="display compact nowrap",
+    style="font-size: 0.8rem;",
 )
 ```
 
@@ -70,12 +69,11 @@ show(
 #| label: sample-summary
 #| echo: false
 n = len(df)
-n_overuse = df["overuse_of_ge"].sum()
-n_omitted = (df["identified_noun"] == "OMITTED").sum()
-n_specific = (df["classifier_type"] == "Specific").sum()
-n_general = (df["classifier_type"] == "General").sum()
-n_child = (df["Speaker_Role"] == "Target_Child").sum()
-n_adult = n - n_child - (df["Speaker_Role"] == "Child").sum()
+n_overuse = int(df["overuse_of_ge"].sum())
+n_omitted = int((df["identified_noun"] == "OMITTED").sum())
+n_specific = int((df["classifier_type"] == "Specific").sum())
+n_general = int((df["classifier_type"] == "General").sum())
+n_child = int((df["Speaker_Role"] == "Target_Child").sum())
 ```
 
 ::: {.callout-note}
@@ -94,7 +92,7 @@ n_adult = n - n_child - (df["Speaker_Role"] == "Child").sum()
 
 ## Full Data (All Columns)
 
-Expand below to see the complete output with all columns including metadata.
+Expand below to see every column from the output CSV, including original CHILDES metadata (Age in days), POS tags, and SQL identifiers.
 
 ::: {.callout-caution collapse="true"}
 ## Expand: Full 20-row output with all columns
@@ -102,32 +100,18 @@ Expand below to see the complete output with all columns including metadata.
 ```{python}
 #| label: full-table
 #| echo: false
-full_cols = [
-    "File Name",
-    "Speaker_Code",
-    "Speaker_Role",
-    "age_years",
-    "age_available",
-    "Utterance",
-    "Determiner/Numbers",
-    "Classifier",
-    "determiner_type",
-    "identified_noun",
-    "conventional_classifier",
-    "conventional_classifier_zh",
-    "classifier_type",
-    "overuse_of_ge",
-    "rationale",
-]
-df_full = df[[c for c in full_cols if c in df.columns]].copy()
+#| warning: false
+import warnings
+warnings.filterwarnings("ignore", module="itables")
+
+# Show ALL columns from the CSV
 show(
-    df_full,
-    paging=True,
-    pageLength=20,
-    searching=True,
+    df,
+    paging=False,
     ordering=True,
     scrollX=True,
-    classes="display compact",
+    classes="display compact nowrap",
+    style="font-size: 0.75rem;",
 )
 ```
 
@@ -139,25 +123,28 @@ show(
 | Column | Source | Description |
 |--------|--------|-------------|
 | `File Name` | Phase 2 (SQL) | CHILDES corpus file path |
+| `Collection_Type` | Phase 2 (SQL) | CHILDES collection name |
 | `Speaker_Code` | Phase 2 (SQL) | Speaker code from CHILDES (CHI, MOT, FAT, etc.) |
 | `Speaker_Role` | Phase 2 (SQL) | Speaker role (Target_Child, Mother, Father, etc.) |
-| `Age` | Phase 2 (SQL) | Target child age in days |
-| `age_years` | Computed | Age in decimal years (age_days / 365.25) |
-| `age_available` | Computed | Whether age metadata exists |
+| `Age` | Phase 2 (SQL) | Target child age in days (original CHILDES value) |
 | `Utterance` | Phase 2 (SQL) | Full utterance from CHILDES |
 | `%gra` | Phase 2 (SQL) | POS tag sequence for the utterance |
 | `Determiner/Numbers` | Phase 2 (SQL) | The numeral/determiner/demonstrative preceding the classifier |
 | `Classifier` | Phase 2 (SQL) | The classifier token |
+| `utterance_id` | Phase 2 (SQL) | Unique utterance ID from childes-db |
+| `utterance_order` | Phase 2 (SQL) | Position of utterance within transcript |
+| `classifier_token_order` | Phase 2 (SQL) | Token position of classifier in utterance |
+| `transcript_id` | Phase 2 (SQL) | Unique transcript ID from childes-db |
 | `determiner_type` | Computed | Semantic type: demonstrative, numeral, interrogative, ordinal, quantifier |
+| `age_years` | Computed | Age in decimal years (age_days / 365.25) |
+| `age_available` | Computed | Whether age metadata exists |
+| `Classifier type` | LLM (Phase 3) | General (个) or Specific |
+| `Over use of Ge...` | LLM (Phase 3) | Legacy column (see overuse_of_ge) |
 | `identified_noun` | LLM (Phase 3) | The noun modified by the classifier, or OMITTED |
 | `conventional_classifier` | LLM (Phase 3) | Standard adult classifier for this noun (pinyin) |
 | `conventional_classifier_zh` | LLM (Phase 3) | Standard adult classifier (Simplified Chinese) |
 | `classifier_type` | LLM (Phase 3) | General (个) or Specific |
 | `overuse_of_ge` | LLM (Phase 3) | True if 个 was used where a specific classifier is conventional |
 | `rationale` | LLM (Phase 3) | One-sentence explanation of the judgment |
-| `utterance_id` | Phase 2 (SQL) | Unique utterance ID from childes-db (pending re-extraction) |
-| `utterance_order` | Phase 2 (SQL) | Position of utterance within transcript (pending re-extraction) |
-| `classifier_token_order` | Phase 2 (SQL) | Token position of classifier in utterance (pending re-extraction) |
-| `transcript_id` | Phase 2 (SQL) | Unique transcript ID from childes-db (pending re-extraction) |
 
 : {.striped .hover .column-ref}
