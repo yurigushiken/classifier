@@ -68,27 +68,30 @@ show(
 ```{python}
 #| label: sample-summary
 #| echo: false
+#| output: asis
 n = len(df)
-n_overuse = int(df["overuse_of_ge"].sum())
+n_overuse = int((df["overuse_of_ge"].astype(str).str.lower() == "true").sum())
 n_omitted = int((df["identified_noun"] == "OMITTED").sum())
 n_specific = int((df["classifier_type"] == "Specific").sum())
 n_general = int((df["classifier_type"] == "General").sum())
 n_child = int((df["Speaker_Role"] == "Target_Child").sum())
-```
 
-::: {.callout-note}
-## Key Metrics (n = 20)
+print(f"""
+::: {{.callout-note}}
+## Key Metrics (n = {n})
 
 | Metric | Value |
 |--------|-------|
-| Total rows | `{python} n` |
-| Overuse of 个 detected | `{python} n_overuse` |
-| OMITTED nouns | `{python} n_omitted` |
-| General classifier (个) | `{python} n_general` |
-| Specific classifier | `{python} n_specific` |
-| Target child utterances | `{python} n_child` |
+| Total rows | {n} |
+| Overuse of 个 detected | {n_overuse} |
+| OMITTED nouns | {n_omitted} |
+| General classifier (个) | {n_general} |
+| Specific classifier | {n_specific} |
+| Target child utterances | {n_child} |
 
 :::
+""")
+```
 
 ## Full Data (All Columns)
 
