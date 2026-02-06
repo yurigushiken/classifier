@@ -65,6 +65,8 @@ All models scored **20/20 clean** on both the focused validation sample (20 rows
 
 ### Prompt Design (5 iterations)
 
+The full prompt source code is available in the [GitHub repository](https://github.com/yurigushiken/classifier/blob/main/src/classifier_pipeline/prompts.py).
+
 ::: {.callout-note collapse="true"}
 ## Expand: Prompt Iteration History
 
