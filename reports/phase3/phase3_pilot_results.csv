@@ -1,0 +1,21 @@
+File Name,Collection_Type,Age,Utterance,%gra,Determiner/Numbers,Classifier,Classifier type,Over use of Ge...,Meaning
+Mandarin/AcadLang/lower/001.xml,Chinese,,这 个 是 什么 呀,det cl v:cop pro:wh sfp,这,个,General,No,Unspecified/unknown object (general demonstrative referent)
+Mandarin/AcadLang/lower/001.xml,Chinese,,这 个 样子 啊,det cl n sfp,这,个,General,No,Appearance/Manner - abstract noun
+Mandarin/AcadLang/lower/001.xml,Chinese,,那 之后 小孩 又 看 到 这 个,pro:dem post n adv v v:resc det cl,这,个,General,Yes,"Unspecified concrete object (context-dependent referent, likely an animal, artifact, or shape-specific noun requiring classifiers such as 只, 张, or 条)"
+Mandarin/AcadLang/lower/001.xml,Chinese,,这 个 是 什么 啊,det cl v:cop pro:wh sfp,这,个,General,No,Unidentified object - used in question context where the referent's specific category is unknown to the speaker
+Mandarin/AcadLang/lower/001.xml,Chinese,,这 本来 是 两 个 字,pro:dem adv v:cop num cl n,两,个,General,No,Character - individual written unit
+Mandarin/AcadLang/lower/001.xml,Chinese,,啊 两 个 字,sfp num cl n,两,个,General,No,Character/Word - written symbol
+Mandarin/AcadLang/lower/001.xml,Chinese,,篮球 像 一 个 大 肉圆,n v num cl adj n,一,个,General,No,Meatball - round spherical food object
+Mandarin/AcadLang/lower/001.xml,Chinese,,篮球 像 一 个 大 肉圆 啊,n v num cl adj n sfp,一,个,General,Yes,Meatball - round/spherical object
+Mandarin/AcadLang/lower/001.xml,Chinese,,它 要是 有 一 个 篮球,pro:per conj v num cl n,一,个,General,No,Basketball - spherical sports ball
+Mandarin/AcadLang/lower/002.xml,Chinese,2191.5,那 请 你 来 介绍 一下 这 个 好不好,pro:dem v pro:per v:dirc v adv det cl co:int,这,个,General,No,General entity - unspecified referent/demonstrative pronoun
+Mandarin/AcadLang/lower/002.xml,Chinese,2191.5,最后 一 个 了 好 吧,adv num cl asp adj sfp,一,个,General,No,Unspecified item/generic object (no overt noun in utterance)
+Mandarin/AcadLang/lower/002.xml,Chinese,2191.5,皮球 是 和 那 个 苹果 一样的,n v:cop prep det cl n adj,那,个,General,No,Apple - round fruit
+Mandarin/AcadLang/lower/003.xml,Chinese,1369.6875,还 有 这 个 颜色,adv v det cl n,这,个,General,No,Color - abstract visual property
+Mandarin/AcadLang/lower/005.xml,Chinese,2191.5,这 是 一 个,pro:dem v:cop num cl,一,个,General,No,Noun omitted or unspecified - no specific referent identifiable in utterance
+Mandarin/AcadLang/lower/005.xml,Chinese,2191.5,是 一 个 大 红色 的,v:cop num cl adj adj nom,一,个,General,Yes,"Unspecified referent - likely an object with established specific classifier (e.g., flower requiring 朵, paper requiring 张, or long object requiring 条)"
+Mandarin/AcadLang/lower/005.xml,Chinese,2191.5,小 羊 又 到 了 一 间 教室 又 看 到 了 一样 东西 这 个 是,adj n adv v:resc asp num cl n adv v v:resc asp adj n det cl v:cop,这,个,General,No,Thing/item - general object
+Mandarin/AcadLang/lower/006.xml,Chinese,1521.875,但是 它 红色 的 皮 里面 有 一 个,conj pro:per adj nom n post v num cl,一,个,General,Yes,Seed/Pit - small round object inside fruit
+Mandarin/AcadLang/lower/006.xml,Chinese,1521.875,就 像 一 个 大 西瓜 一样,adv v num cl adj n adj,一,个,General,Yes,Watermelon - large round fruit
+Mandarin/AcadLang/lower/007.xml,Chinese,2191.5,他 又 来 到 了 另外 一 个 教室,pro:per adv v:dirc v:resc asp adv num cl n,一,个,General,Yes,Classroom - room/enclosed space
+Mandarin/AcadLang/lower/007.xml,Chinese,2191.5,一 个 篮球,num cl n,一,个,General,No,Basketball - round ball

@@ -1,0 +1,1666 @@
+[
+  {
+    "corpus": "AcadLang",
+    "collection": "Chinese",
+    "languages": "zho",
+    "n_transcripts": 116,
+    "n_transcripts_with_target_child_age": 115,
+    "target_child_age_min": 1095.75,
+    "target_child_age_max": 2526.3125,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 4380,
+    "speaker_code_counts": {
+      "ADU": 2308,
+      "CHI": 2072
+    },
+    "speaker_role_counts": {
+      "Adult": 2308,
+      "Target_Child": 2072
+    },
+    "speaker_codes": "ADU;CHI",
+    "speaker_roles": "Adult;Target_Child",
+    "classifier_counts_all": {
+      "个": 353,
+      "只": 22,
+      "张": 2,
+      "条": 18
+    },
+    "classifier_counts_chi": {
+      "个": 190,
+      "只": 19,
+      "张": 1,
+      "条": 15
+    }
+  },
+  {
+    "corpus": "Beijing",
+    "collection": "Chinese",
+    "languages": "zho",
+    "n_transcripts": 50,
+    "n_transcripts_with_target_child_age": 49,
+    "target_child_age_min": 636.75,
+    "target_child_age_max": 825.8125,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 91449,
+    "speaker_code_counts": {
+      "AYY": 1826,
+      "BAO": 1428,
+      "CAA": 1,
+      "CH2": 536,
+      "CHI": 28464,
+      "DDD": 101,
+      "DGG": 1413,
+      "FAT": 12261,
+      "INV": 3197,
+      "JEE": 172,
+      "JJJ": 77,
+      "LLL": 198,
+      "LYY": 232,
+      "MNN": 40,
+      "MOT": 33333,
+      "NNN": 3597,
+      "OBB": 7,
+      "OFF": 781,
+      "OGG": 97,
+      "OMM": 916,
+      "ONN": 78,
+      "OPP": 257,
+      "OYY": 88,
+      "SSS": 37,
+      "UNC": 1116,
+      "XGG": 410,
+      "YYY": 786
+    },
+    "speaker_role_counts": {
+      "Adult": 1694,
+      "Investigator": 3465,
+      "Mother": 37466,
+      "Caretaker": 1428,
+      "Child": 425,
+      "Target_Child": 28464,
+      "Unidentified": 1350,
+      "Relative": 1182,
+      "Father": 13091,
+      "Grandmother": 2096,
+      "Grandfather": 788
+    },
+    "speaker_codes": "AYY;BAO;CAA;CH2;CHI;DDD;DGG;FAT;INV;JEE;JJJ;LLL;LYY;MNN;MOT;NNN;OBB;OFF;OGG;OMM;ONN;OPP;OYY;SSS;UNC;XGG;YYY",
+    "speaker_roles": "Adult;Caretaker;Child;Father;Grandfather;Grandmother;Investigator;Mother;Relative;Target_Child;Unidentified"
+  },
+  {
+    "corpus": "Chang1",
+    "collection": "Chinese",
+    "languages": "zho; zho eng; zho nan",
+    "n_transcripts": 24,
+    "n_transcripts_with_target_child_age": 24,
+    "target_child_age_min": 1278.375,
+    "target_child_age_max": 2343.6875,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 5813,
+    "speaker_code_counts": {
+      "CHI": 3179,
+      "EXP": 2634
+    },
+    "speaker_role_counts": {
+      "Target_Child": 3179,
+      "Investigator": 2634
+    },
+    "speaker_codes": "CHI;EXP",
+    "speaker_roles": "Investigator;Target_Child",
+    "classifier_counts_all": {
+      "个": 617,
+      "只": 210,
+      "张": 2,
+      "条": 12
+    },
+    "classifier_counts_chi": {
+      "个": 269,
+      "只": 107,
+      "张": 2,
+      "条": 1
+    }
+  },
+  {
+    "corpus": "Chang2",
+    "collection": "Chinese",
+    "languages": "zho",
+    "n_transcripts": 31,
+    "n_transcripts_with_target_child_age": 31,
+    "target_child_age_min": 1217.5,
+    "target_child_age_max": 1308.8125,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 6753,
+    "speaker_code_counts": {
+      "CHI": 2104,
+      "EXP": 6,
+      "FAT": 11,
+      "INV": 26,
+      "MOT": 4604,
+      "SIS": 2
+    },
+    "speaker_role_counts": {
+      "Target_Child": 2104,
+      "Investigator": 32,
+      "Father": 11,
+      "Mother": 4604,
+      "Sister": 2
+    },
+    "speaker_codes": "CHI;EXP;FAT;INV;MOT;SIS",
+    "speaker_roles": "Father;Investigator;Mother;Sister;Target_Child",
+    "classifier_counts_all": {
+      "个": 481,
+      "只": 43,
+      "张": 20,
+      "本": 3
+    },
+    "classifier_counts_chi": {
+      "个": 184,
+      "只": 6,
+      "张": 6
+    }
+  },
+  {
+    "corpus": "ChangPlay",
+    "collection": "Chinese",
+    "languages": "zho",
+    "n_transcripts": 56,
+    "n_transcripts_with_target_child_age": 56,
+    "target_child_age_min": 1126.1875,
+    "target_child_age_max": 2191.5,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 26509,
+    "speaker_code_counts": {
+      "AUN": 7,
+      "BRO": 633,
+      "CHI": 8491,
+      "EXP": 431,
+      "EXP1": 8,
+      "EXP2": 8,
+      "FAT": 357,
+      "GRA": 17,
+      "GRF": 18,
+      "GRM": 1023,
+      "MOT": 14692,
+      "SI1": 249,
+      "SI2": 104,
+      "SI3": 7,
+      "SIS": 464
+    },
+    "speaker_role_counts": {
+      "Relative": 14,
+      "Brother": 633,
+      "Target_Child": 8491,
+      "Investigator": 447,
+      "Father": 357,
+      "Grandfather": 35,
+      "Grandmother": 1023,
+      "Mother": 14692,
+      "Sister": 817
+    },
+    "speaker_codes": "AUN;BRO;CHI;EXP;EXP1;EXP2;FAT;GRA;GRF;GRM;MOT;SI1;SI2;SI3;SIS",
+    "speaker_roles": "Brother;Father;Grandfather;Grandmother;Investigator;Mother;Relative;Sister;Target_Child",
+    "classifier_counts_all": {
+      "个": 2287,
+      "只": 216,
+      "张": 30,
+      "条": 34
+    },
+    "classifier_counts_chi": {
+      "个": 881,
+      "只": 55,
+      "张": 2,
+      "条": 6
+    }
+  },
+  {
+    "corpus": "ChangPN",
+    "collection": "Chinese",
+    "languages": "zho",
+    "n_transcripts": 191,
+    "n_transcripts_with_target_child_age": 191,
+    "target_child_age_min": 1217.5,
+    "target_child_age_max": 3835.125,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 27279,
+    "speaker_code_counts": {
+      "CHI": 10005,
+      "EXP": 17274
+    },
+    "speaker_role_counts": {
+      "Target_Child": 10005,
+      "Investigator": 17274
+    },
+    "speaker_codes": "CHI;EXP",
+    "speaker_roles": "Investigator;Target_Child",
+    "classifier_counts_all": {
+      "个": 1043,
+      "只": 413,
+      "张": 55,
+      "本": 157,
+      "条": 11
+    },
+    "classifier_counts_chi": {
+      "个": 444,
+      "只": 192,
+      "张": 11,
+      "本": 18,
+      "条": 10
+    }
+  },
+  {
+    "corpus": "CHCC",
+    "collection": "Biling",
+    "languages": "eng yue zho; eng zho; eng zho spa; yue eng zho; yue eng zho spa; yue zho eng; zho; zho eng; zho eng spa; zho yue eng",
+    "n_transcripts": 189,
+    "n_transcripts_with_target_child_age": 187,
+    "target_child_age_min": 582.3125,
+    "target_child_age_max": 1801.8125,
+    "section": "Biling",
+    "status": "ok",
+    "n_utterances": 100022,
+    "speaker_code_counts": {
+      "ALI": 16,
+      "AUN": 120,
+      "CHI": 30839,
+      "FAT": 13836,
+      "GRA": 11,
+      "GRAF": 293,
+      "GRAM": 449,
+      "GRM": 91,
+      "JEN": 285,
+      "KAY": 4574,
+      "LAN": 3785,
+      "MAG": 9917,
+      "MOT": 29151,
+      "RIK": 287,
+      "SOP": 6298,
+      "VID": 70
+    },
+    "speaker_role_counts": {
+      "Investigator": 25232,
+      "Relative": 120,
+      "Target_Child": 30839,
+      "Father": 13836,
+      "Grandfather": 304,
+      "Grandmother": 540,
+      "Mother": 29151
+    },
+    "speaker_codes": "ALI;AUN;CHI;FAT;GRA;GRAF;GRAM;GRM;JEN;KAY;LAN;MAG;MOT;RIK;SOP;VID",
+    "speaker_roles": "Father;Grandfather;Grandmother;Investigator;Mother;Relative;Target_Child",
+    "classifier_counts_all": {
+      "个": 3098,
+      "只": 277,
+      "张": 52,
+      "本": 178,
+      "条": 86
+    },
+    "classifier_counts_chi": {
+      "个": 1016,
+      "只": 49,
+      "张": 6,
+      "本": 27,
+      "条": 8
+    }
+  },
+  {
+    "corpus": "Chinese-Chang1",
+    "collection": "Frogs",
+    "languages": "zho; zho eng; zho nan; zho nan eng",
+    "n_transcripts": 91,
+    "n_transcripts_with_target_child_age": 90,
+    "target_child_age_min": 1217.5,
+    "target_child_age_max": 2678.5,
+    "section": "Frogs",
+    "status": "ok",
+    "n_utterances": 11965,
+    "speaker_code_counts": {
+      "CHI": 5256,
+      "EXP": 6709
+    },
+    "speaker_role_counts": {
+      "Child": 114,
+      "Target_Child": 5142,
+      "Investigator": 6709
+    },
+    "speaker_codes": "CHI;EXP",
+    "speaker_roles": "Child;Investigator;Target_Child",
+    "classifier_counts_all": {
+      "个": 829,
+      "只": 416,
+      "张": 48,
+      "本": 287,
+      "条": 15
+    },
+    "classifier_counts_chi": {
+      "个": 558,
+      "只": 268,
+      "张": 2,
+      "本": 4,
+      "条": 1
+    }
+  },
+  {
+    "corpus": "Chinese-Guo",
+    "collection": "Frogs",
+    "languages": "zho; zho eng",
+    "n_transcripts": 72,
+    "n_transcripts_with_target_child_age": 72,
+    "target_child_age_min": 1278.375,
+    "target_child_age_max": 7305.0,
+    "section": "Frogs",
+    "status": "ok",
+    "n_utterances": 6343,
+    "speaker_code_counts": {
+      "CHI": 4968,
+      "INV": 1375
+    },
+    "speaker_role_counts": {
+      "Target_Child": 4968,
+      "Investigator": 1375
+    },
+    "speaker_codes": "CHI;INV",
+    "speaker_roles": "Investigator;Target_Child",
+    "classifier_counts_all": {
+      "个": 1705,
+      "只": 331,
+      "张": 3,
+      "条": 12
+    },
+    "classifier_counts_chi": {
+      "个": 1335,
+      "只": 328,
+      "张": 3,
+      "条": 12
+    }
+  },
+  {
+    "corpus": "Chinese-Tardif",
+    "collection": "Frogs",
+    "languages": "zho",
+    "n_transcripts": 603,
+    "n_transcripts_with_target_child_age": 601,
+    "target_child_age_min": 979.0,
+    "target_child_age_max": 1843.25,
+    "section": "Frogs",
+    "status": "ok",
+    "n_utterances": 57098,
+    "speaker_code_counts": {
+      "CHI": 22595,
+      "HA1": 1488,
+      "HA2": 697,
+      "HA3": 8,
+      "HAN": 4719,
+      "IN1": 7013,
+      "IN2": 2860,
+      "INV": 17718
+    },
+    "speaker_role_counts": {
+      "Target_Child": 22595,
+      "Father": 630,
+      "Grandfather": 39,
+      "Grandmother": 651,
+      "Mother": 5551,
+      "Unidentified": 15,
+      "Relative": 27,
+      "Investigator": 476,
+      "Teacher": 27114
+    },
+    "speaker_codes": "CHI;HA1;HA2;HA3;HAN;IN1;IN2;INV",
+    "speaker_roles": "Father;Grandfather;Grandmother;Investigator;Mother;Relative;Target_Child;Teacher;Unidentified",
+    "classifier_counts_all": {
+      "个": 7021,
+      "只": 895,
+      "张": 613,
+      "本": 7,
+      "条": 20
+    },
+    "classifier_counts_chi": {
+      "个": 3336,
+      "只": 728,
+      "张": 55,
+      "本": 2,
+      "条": 20
+    }
+  },
+  {
+    "corpus": "Chinese-Zhou",
+    "collection": "Frogs",
+    "languages": "zho",
+    "n_transcripts": 60,
+    "n_transcripts_with_target_child_age": 60,
+    "target_child_age_min": 1095.75,
+    "target_child_age_max": 1461.0,
+    "section": "Frogs",
+    "status": "ok",
+    "n_utterances": 4529,
+    "speaker_code_counts": {
+      "CHI": 2664,
+      "INV": 1865
+    },
+    "speaker_role_counts": {
+      "Target_Child": 2664,
+      "Investigator": 1865
+    },
+    "speaker_codes": "CHI;INV",
+    "speaker_roles": "Investigator;Target_Child",
+    "classifier_counts_all": {
+      "个": 727,
+      "只": 220,
+      "张": 21,
+      "本": 99,
+      "条": 13
+    },
+    "classifier_counts_chi": {
+      "个": 403,
+      "只": 131,
+      "张": 6,
+      "本": 2,
+      "条": 2
+    }
+  },
+  {
+    "corpus": "CLPF",
+    "collection": "Dutch",
+    "languages": "nan",
+    "n_transcripts": 2,
+    "n_transcripts_with_target_child_age": 0,
+    "target_child_age_min": null,
+    "target_child_age_max": null,
+    "section": "Dutch",
+    "status": "ok"
+  },
+  {
+    "corpus": "CUHK",
+    "collection": "Biling",
+    "languages": "eng zho",
+    "n_transcripts": 9,
+    "n_transcripts_with_target_child_age": 4,
+    "target_child_age_min": 1126.1875,
+    "target_child_age_max": 2374.125,
+    "section": "Biling",
+    "status": "ok",
+    "n_utterances": 1910,
+    "speaker_code_counts": {
+      "ADU": 232,
+      "ALL": 11,
+      "AUN": 210,
+      "CAN": 43,
+      "CEL": 4,
+      "CH2": 47,
+      "CHI": 612,
+      "INT": 173,
+      "INV": 233,
+      "MAN": 71,
+      "MAR": 111,
+      "MOM": 145,
+      "MOT": 2,
+      "STE": 8,
+      "UNC": 7,
+      "WOM": 1
+    },
+    "speaker_role_counts": {
+      "Adult": 232,
+      "Child": 128,
+      "Relative": 217,
+      "Target_Child": 766,
+      "Mother": 159,
+      "Investigator": 406,
+      "Visitor": 2
+    },
+    "speaker_codes": "ADU;ALL;AUN;CAN;CEL;CH2;CHI;INT;INV;MAN;MAR;MOM;MOT;STE;UNC;WOM",
+    "speaker_roles": "Adult;Child;Investigator;Mother;Relative;Target_Child;Visitor"
+  },
+  {
+    "corpus": "Erbaugh",
+    "collection": "Chinese",
+    "languages": "zho eng",
+    "n_transcripts": 64,
+    "n_transcripts_with_target_child_age": 64,
+    "target_child_age_min": 667.1875,
+    "target_child_age_max": 1392.6875,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 68164,
+    "speaker_code_counts": {
+      "ADU": 12654,
+      "ADU1": 5862,
+      "ADU2": 1891,
+      "ADU3": 209,
+      "ADU4": 4,
+      "CHI": 24462,
+      "CHI1": 1559,
+      "CHI2": 974,
+      "FAT": 1147,
+      "GRA": 205,
+      "MOT": 17903,
+      "SIS": 1294
+    },
+    "speaker_role_counts": {
+      "Adult": 20575,
+      "Grandmother": 250,
+      "Target_Child": 25541,
+      "Child": 1454,
+      "Father": 1147,
+      "Mother": 17903,
+      "Sister": 1294
+    },
+    "speaker_codes": "ADU;ADU1;ADU2;ADU3;ADU4;CHI;CHI1;CHI2;FAT;GRA;MOT;SIS",
+    "speaker_roles": "Adult;Child;Father;Grandmother;Mother;Sister;Target_Child",
+    "classifier_counts_all": {
+      "个": 3717,
+      "只": 247,
+      "张": 109,
+      "本": 65,
+      "条": 39
+    },
+    "classifier_counts_chi": {
+      "个": 1308,
+      "只": 67,
+      "张": 31,
+      "本": 15,
+      "条": 10
+    }
+  },
+  {
+    "corpus": "Guthrie",
+    "collection": "Biling",
+    "languages": "eng zho",
+    "n_transcripts": 36,
+    "n_transcripts_with_target_child_age": 0,
+    "target_child_age_min": null,
+    "target_child_age_max": null,
+    "section": "Biling",
+    "status": "ok",
+    "n_utterances": 21402,
+    "speaker_code_counts": {
+      "AHN": 595,
+      "AHP": 508,
+      "AHT": 200,
+      "AMY": 175,
+      "ANG": 23,
+      "ANH": 193,
+      "ANT": 593,
+      "BEA": 40,
+      "CAL": 94,
+      "CAO": 133,
+      "CAR": 146,
+      "CHI": 11,
+      "CHR": 348,
+      "CLI": 46,
+      "EDW": 3,
+      "ELA": 3,
+      "ELI": 17,
+      "FOO": 7,
+      "HEN": 235,
+      "HIE": 991,
+      "HOW": 741,
+      "JAC": 459,
+      "JOS": 123,
+      "JUS": 101,
+      "KEA": 141,
+      "KIM": 13,
+      "LAR": 4110,
+      "LIS": 111,
+      "MAI": 2487,
+      "MAR": 4351,
+      "MEN": 86,
+      "MEO": 169,
+      "MEY": 290,
+      "MYO": 99,
+      "NGH": 4,
+      "NGO": 1,
+      "PHU": 654,
+      "PUI": 11,
+      "QUO": 32,
+      "RIT": 27,
+      "SAM": 51,
+      "SEV": 740,
+      "STD": 2,
+      "STE": 536,
+      "STU": 871,
+      "SUB": 87,
+      "SUI": 2,
+      "TIN": 5,
+      "TRA": 9,
+      "UNK": 10,
+      "VEL": 69,
+      "WAI": 141,
+      "WYM": 393,
+      "XYZ": 5,
+      "YVO": 110
+    },
+    "speaker_role_counts": {
+      "Student": 10298,
+      "Adult": 59,
+      "Teacher": 10203,
+      "Unidentified": 842
+    },
+    "speaker_codes": "AHN;AHP;AHT;AMY;ANG;ANH;ANT;BEA;CAL;CAO;CAR;CHI;CHR;CLI;EDW;ELA;ELI;FOO;HEN;HIE;HOW;JAC;JOS;JUS;KEA;KIM;LAR;LIS;MAI;MAR;MEN;MEO;MEY;MYO;NGH;NGO;PHU;PUI;QUO;RIT;SAM;SEV;STD;STE;STU;SUB;SUI;TIN;TRA;UNK;VEL;WAI;WYM;XYZ;YVO",
+    "speaker_roles": "Adult;Student;Teacher;Unidentified"
+  },
+  {
+    "corpus": "Hall",
+    "collection": "Eng-NA",
+    "languages": "eng zho",
+    "n_transcripts": 1,
+    "n_transcripts_with_target_child_age": 1,
+    "target_child_age_min": 1734.9375,
+    "target_child_age_max": 1734.9375,
+    "section": "Eng-NA",
+    "status": "ok",
+    "n_utterances": 5224,
+    "speaker_code_counts": {
+      "BRO": 1,
+      "CHI": 1844,
+      "EXP": 323,
+      "FAD": 45,
+      "FAT": 2,
+      "FCH": 254,
+      "GRF": 2,
+      "GRO": 2,
+      "MAD": 27,
+      "MCH": 576,
+      "MOT": 1459,
+      "SIS": 1,
+      "TCA": 1,
+      "TEA": 634,
+      "TEL": 36,
+      "UNK": 17
+    },
+    "speaker_role_counts": {
+      "Brother": 1,
+      "Target_Child": 1844,
+      "Investigator": 323,
+      "Adult": 73,
+      "Father": 2,
+      "Child": 830,
+      "Grandfather": 2,
+      "Unidentified": 19,
+      "Mother": 1459,
+      "Sister": 1,
+      "Teacher": 634,
+      "Media": 36
+    },
+    "speaker_codes": "BRO;CHI;EXP;FAD;FAT;FCH;GRF;GRO;MAD;MCH;MOT;SIS;TCA;TEA;TEL;UNK",
+    "speaker_roles": "Adult;Brother;Child;Father;Grandfather;Investigator;Media;Mother;Sister;Target_Child;Teacher;Unidentified"
+  },
+  {
+    "corpus": "HKU",
+    "collection": "Chinese",
+    "languages": "nan eng; yue eng",
+    "n_transcripts": 70,
+    "n_transcripts_with_target_child_age": 70,
+    "target_child_age_min": 882.6875,
+    "target_child_age_max": 2070.75,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 26850,
+    "speaker_code_counts": {
+      "CHI": 10947,
+      "HEL": 98,
+      "IN1": 217,
+      "IN2": 404,
+      "INV": 15184
+    },
+    "speaker_role_counts": {
+      "Target_Child": 10947,
+      "Caretaker": 98,
+      "Investigator": 15805
+    },
+    "speaker_codes": "CHI;HEL;IN1;IN2;INV",
+    "speaker_roles": "Caretaker;Investigator;Target_Child",
+    "classifier_counts_all": {
+      "本": 4
+    },
+    "classifier_counts_chi": {
+      "本": 1
+    }
+  },
+  {
+    "corpus": "KernFrench",
+    "collection": "French",
+    "languages": "nan",
+    "n_transcripts": 1,
+    "n_transcripts_with_target_child_age": 0,
+    "target_child_age_min": null,
+    "target_child_age_max": null,
+    "section": "French",
+    "status": "ok"
+  },
+  {
+    "corpus": "LeeWongLeung",
+    "collection": "Chinese",
+    "languages": "yue eng; yue eng jpn",
+    "n_transcripts": 161,
+    "n_transcripts_with_target_child_age": 161,
+    "target_child_age_min": 539.4375,
+    "target_child_age_max": 1348.25,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 254521,
+    "speaker_code_counts": {
+      "ACH": 3,
+      "ACQ": 1,
+      "ANN": 3,
+      "AUN": 471,
+      "BOY": 3,
+      "BRO": 71,
+      "CHI": 84383,
+      "CUS": 320,
+      "FAT": 5203,
+      "FIV": 95,
+      "FRI": 2,
+      "GDM": 224,
+      "GMO": 68,
+      "GRA": 1057,
+      "GRF": 85,
+      "GRM": 355,
+      "INV": 139601,
+      "LAD": 5,
+      "MAN": 29,
+      "MOT": 14107,
+      "PBY": 4,
+      "SEC": 2,
+      "SER": 324,
+      "SIS": 5441,
+      "SIV": 2046,
+      "STM": 4,
+      "STU": 21,
+      "TIV": 15,
+      "UNC": 198,
+      "VSI": 375,
+      "WAI": 5
+    },
+    "speaker_role_counts": {
+      "Child": 27,
+      "Friend": 1,
+      "Unidentified": 3,
+      "Relative": 1023,
+      "Brother": 71,
+      "Target_Child": 84383,
+      "Father": 5203,
+      "Investigator": 142132,
+      "Adult": 309,
+      "Grandmother": 1412,
+      "Grandfather": 85,
+      "Mother": 14107,
+      "Caretaker": 324,
+      "Sister": 5441
+    },
+    "speaker_codes": "ACH;ACQ;ANN;AUN;BOY;BRO;CHI;CUS;FAT;FIV;FRI;GDM;GMO;GRA;GRF;GRM;INV;LAD;MAN;MOT;PBY;SEC;SER;SIS;SIV;STM;STU;TIV;UNC;VSI;WAI",
+    "speaker_roles": "Adult;Brother;Caretaker;Child;Father;Friend;Grandfather;Grandmother;Investigator;Mother;Relative;Sister;Target_Child;Unidentified",
+    "classifier_counts_all": {
+      "只": 1,
+      "本": 869
+    },
+    "classifier_counts_chi": {
+      "本": 167
+    }
+  },
+  {
+    "corpus": "Leo",
+    "collection": "Biling",
+    "languages": "eng yue zho; eng zho yue; yue eng; yue eng zho; yue zho eng; zho eng; zho eng yue; zho yue eng",
+    "n_transcripts": 54,
+    "n_transcripts_with_target_child_age": 54,
+    "target_child_age_min": 547.875,
+    "target_child_age_max": 1086.3125,
+    "section": "Biling",
+    "status": "ok",
+    "n_utterances": 48592,
+    "speaker_code_counts": {
+      "CHI": 14167,
+      "FAT": 7499,
+      "GRA": 3341,
+      "GRF": 6,
+      "HAN": 3840,
+      "HOU": 449,
+      "JOY": 13,
+      "MOT": 19274,
+      "RIK": 3
+    },
+    "speaker_role_counts": {
+      "Target_Child": 14167,
+      "Father": 7499,
+      "Grandfather": 142,
+      "Grandmother": 3205,
+      "Investigator": 3856,
+      "Caretaker": 449,
+      "Mother": 19274
+    },
+    "speaker_codes": "CHI;FAT;GRA;GRF;HAN;HOU;JOY;MOT;RIK",
+    "speaker_roles": "Caretaker;Father;Grandfather;Grandmother;Investigator;Mother;Target_Child",
+    "classifier_counts_all": {
+      "个": 562,
+      "只": 63,
+      "张": 15,
+      "本": 97,
+      "条": 14
+    },
+    "classifier_counts_chi": {
+      "个": 71,
+      "只": 12,
+      "张": 1,
+      "本": 11,
+      "条": 2
+    }
+  },
+  {
+    "corpus": "LiReading",
+    "collection": "Chinese",
+    "languages": "zho; zho eng",
+    "n_transcripts": 214,
+    "n_transcripts_with_target_child_age": 214,
+    "target_child_age_min": 1156.625,
+    "target_child_age_max": 2282.8125,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 72875,
+    "speaker_code_counts": {
+      "CHI": 21925,
+      "MOT": 50950
+    },
+    "speaker_role_counts": {
+      "Target_Child": 21925,
+      "Mother": 50950
+    },
+    "speaker_codes": "CHI;MOT",
+    "speaker_roles": "Mother;Target_Child",
+    "classifier_counts_all": {
+      "个": 8016,
+      "只": 748,
+      "张": 780,
+      "本": 640,
+      "条": 41
+    },
+    "classifier_counts_chi": {
+      "个": 2186,
+      "只": 161,
+      "张": 91,
+      "本": 82,
+      "条": 14
+    }
+  },
+  {
+    "corpus": "LiZhou",
+    "collection": "Chinese",
+    "languages": "zho; zho eng",
+    "n_transcripts": 40,
+    "n_transcripts_with_target_child_age": 0,
+    "target_child_age_min": null,
+    "target_child_age_max": null,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 13245,
+    "speaker_code_counts": {
+      "CH2": 6160,
+      "CHI": 7085
+    },
+    "speaker_role_counts": {
+      "Target_Child": 13245
+    },
+    "speaker_codes": "CH2;CHI",
+    "speaker_roles": "Target_Child",
+    "classifier_counts_all": {
+      "个": 1192,
+      "只": 36,
+      "张": 7,
+      "本": 3,
+      "条": 12
+    },
+    "classifier_counts_chi": {
+      "个": 1192,
+      "只": 36,
+      "张": 7,
+      "本": 3,
+      "条": 12
+    }
+  },
+  {
+    "corpus": "Lyon",
+    "collection": "French",
+    "languages": "nan",
+    "n_transcripts": 7,
+    "n_transcripts_with_target_child_age": 0,
+    "target_child_age_min": null,
+    "target_child_age_max": null,
+    "section": "French",
+    "status": "ok"
+  },
+  {
+    "corpus": "PaidoCantonese",
+    "collection": "Chinese",
+    "languages": "yue",
+    "n_transcripts": 160,
+    "n_transcripts_with_target_child_age": 160,
+    "target_child_age_min": 821.8125,
+    "target_child_age_max": 2100.1875,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 8354,
+    "speaker_code_counts": {
+      "CHI": 8354
+    },
+    "speaker_role_counts": {
+      "Target_Child": 8354
+    },
+    "speaker_codes": "CHI",
+    "speaker_roles": "Target_Child"
+  },
+  {
+    "corpus": "Providence",
+    "collection": "Eng-NA",
+    "languages": "nan",
+    "n_transcripts": 2,
+    "n_transcripts_with_target_child_age": 0,
+    "target_child_age_min": null,
+    "target_child_age_max": null,
+    "section": "Eng-NA",
+    "status": "ok"
+  },
+  {
+    "corpus": "Singapore",
+    "collection": "Biling",
+    "languages": "eng zho; eng zho ind; eng zho tha",
+    "n_transcripts": 181,
+    "n_transcripts_with_target_child_age": 0,
+    "target_child_age_min": null,
+    "target_child_age_max": null,
+    "section": "Biling",
+    "status": "ok",
+    "n_utterances": 43734,
+    "speaker_code_counts": {
+      "ALA": 2382,
+      "AMA": 56,
+      "AUG": 669,
+      "AUN": 31,
+      "BRE": 104,
+      "CAL": 538,
+      "CF1": 120,
+      "CF2": 8,
+      "CG1": 12,
+      "CHR": 9,
+      "CM1": 110,
+      "CM2": 7,
+      "CT1": 491,
+      "CT2": 1,
+      "CT3": 205,
+      "CT4": 246,
+      "DAI": 566,
+      "DAM": 66,
+      "DIA": 258,
+      "DRA": 491,
+      "EDD": 286,
+      "EDW": 411,
+      "ELM": 302,
+      "ET1": 738,
+      "ET3": 167,
+      "ET4": 58,
+      "ET5": 6,
+      "EUG": 882,
+      "GUZ": 121,
+      "IRV": 486,
+      "IVA": 252,
+      "JAM": 582,
+      "JAR": 921,
+      "JAS": 90,
+      "JES": 148,
+      "JIJ": 1385,
+      "JON": 1379,
+      "KEV": 191,
+      "KIE": 616,
+      "KRI": 1109,
+      "LAR": 173,
+      "LEA": 1466,
+      "LEW": 538,
+      "LUC": 2132,
+      "MAR": 3647,
+      "MEL": 991,
+      "MIN": 346,
+      "MOL": 701,
+      "NAO": 854,
+      "NIC": 494,
+      "OBS": 9,
+      "PAT": 674,
+      "REL": 385,
+      "SAL": 333,
+      "SAN": 1835,
+      "SEL": 637,
+      "SHI": 768,
+      "SIE": 514,
+      "ST1": 13,
+      "STA": 1553,
+      "SUL": 446,
+      "TAL": 912,
+      "TIF": 1038,
+      "TIT": 1364,
+      "TOM": 1113,
+      "TON": 783,
+      "VID": 434,
+      "VIN": 413,
+      "WAC": 42,
+      "XIN": 223,
+      "XIU": 618,
+      "XST": 539,
+      "YUL": 781,
+      "YUS": 188,
+      "ZSW": 277
+    },
+    "speaker_role_counts": {
+      "Child": 41757,
+      "Teacher": 1943,
+      "Caretaker": 12,
+      "Investigator": 9,
+      "Adult": 13
+    },
+    "speaker_codes": "ALA;AMA;AUG;AUN;BRE;CAL;CF1;CF2;CG1;CHR;CM1;CM2;CT1;CT2;CT3;CT4;DAI;DAM;DIA;DRA;EDD;EDW;ELM;ET1;ET3;ET4;ET5;EUG;GUZ;IRV;IVA;JAM;JAR;JAS;JES;JIJ;JON;KEV;KIE;KRI;LAR;LEA;LEW;LUC;MAR;MEL;MIN;MOL;NAO;NIC;OBS;PAT;REL;SAL;SAN;SEL;SHI;SIE;ST1;STA;SUL;TAL;TIF;TIT;TOM;TON;VID;VIN;WAC;XIN;XIU;XST;YUL;YUS;ZSW",
+    "speaker_roles": "Adult;Caretaker;Child;Investigator;Teacher",
+    "classifier_counts_all": {
+      "个": 1531,
+      "只": 63,
+      "张": 2,
+      "本": 8,
+      "条": 9
+    }
+  },
+  {
+    "corpus": "TCCM",
+    "collection": "Chinese",
+    "languages": "zho; zho nan",
+    "n_transcripts": 127,
+    "n_transcripts_with_target_child_age": 126,
+    "target_child_age_min": 517.4375,
+    "target_child_age_max": 1552.3125,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 100729,
+    "speaker_code_counts": {
+      "ADU": 5519,
+      "AEX": 275,
+      "ANO": 42,
+      "BRO": 73,
+      "CAR": 25,
+      "CHI": 34050,
+      "DAD": 215,
+      "EXA": 30768,
+      "FAT": 263,
+      "FRE": 303,
+      "GFA": 1,
+      "GFT": 30,
+      "GMO": 3,
+      "GMT": 130,
+      "GRA": 1565,
+      "INV": 7460,
+      "LIA": 42,
+      "MOT": 16269,
+      "NAN": 2,
+      "NEI": 21,
+      "SHO": 242,
+      "SIS": 25,
+      "TSA": 3326,
+      "UNC": 79,
+      "UNI": 1
+    },
+    "speaker_role_counts": {
+      "Adult": 5519,
+      "Investigator": 42266,
+      "Grandfather": 34,
+      "Brother": 73,
+      "Caretaker": 27,
+      "Target_Child": 34260,
+      "Father": 478,
+      "Grandmother": 1698,
+      "Mother": 16269,
+      "Sister": 25,
+      "Relative": 79,
+      "Unidentified": 1
+    },
+    "speaker_codes": "ADU;AEX;ANO;BRO;CAR;CHI;DAD;EXA;FAT;FRE;GFA;GFT;GMO;GMT;GRA;INV;LIA;MOT;NAN;NEI;SHO;SIS;TSA;UNC;UNI",
+    "speaker_roles": "Adult;Brother;Caretaker;Father;Grandfather;Grandmother;Investigator;Mother;Relative;Sister;Target_Child;Unidentified",
+    "classifier_counts_all": {
+      "个": 8250,
+      "只": 577,
+      "张": 198,
+      "本": 265,
+      "条": 85
+    },
+    "classifier_counts_chi": {
+      "个": 3026,
+      "只": 135,
+      "张": 38,
+      "本": 55,
+      "条": 15
+    }
+  },
+  {
+    "corpus": "TCCM-reading",
+    "collection": "Chinese",
+    "languages": "zho",
+    "n_transcripts": 20,
+    "n_transcripts_with_target_child_age": 20,
+    "target_child_age_min": 730.5,
+    "target_child_age_max": 882.6875,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 3762,
+    "speaker_code_counts": {
+      "CHI": 1067,
+      "MOT": 2695
+    },
+    "speaker_role_counts": {
+      "Target_Child": 1067,
+      "Mother": 2695
+    },
+    "speaker_codes": "CHI;MOT",
+    "speaker_roles": "Mother;Target_Child",
+    "classifier_counts_all": {
+      "个": 114,
+      "只": 119,
+      "张": 10,
+      "本": 1,
+      "条": 67
+    },
+    "classifier_counts_chi": {
+      "个": 24,
+      "只": 1,
+      "条": 4
+    }
+  },
+  {
+    "corpus": "Thai-Zlatev",
+    "collection": "Frogs",
+    "languages": "tha zho",
+    "n_transcripts": 1,
+    "n_transcripts_with_target_child_age": 1,
+    "target_child_age_min": 1412.125,
+    "target_child_age_max": 1412.125,
+    "section": "Frogs",
+    "status": "ok",
+    "n_utterances": 36,
+    "speaker_code_counts": {
+      "CHI": 36
+    },
+    "speaker_role_counts": {
+      "Target_Child": 36
+    },
+    "speaker_codes": "CHI",
+    "speaker_roles": "Target_Child"
+  },
+  {
+    "corpus": "Tong",
+    "collection": "Chinese",
+    "languages": "zho; zho eng",
+    "n_transcripts": 22,
+    "n_transcripts_with_target_child_age": 22,
+    "target_child_age_min": 596.3125,
+    "target_child_age_max": 1226.5,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 32250,
+    "speaker_code_counts": {
+      "CHI": 10039,
+      "FAT": 2497,
+      "GRA": 1341,
+      "GRF": 317,
+      "GRM": 173,
+      "MOT": 17452,
+      "SIS": 365,
+      "VIS": 66
+    },
+    "speaker_role_counts": {
+      "Target_Child": 10039,
+      "Father": 2497,
+      "Grandfather": 650,
+      "Grandmother": 1181,
+      "Mother": 17452,
+      "Sister": 365,
+      "Visitor": 66
+    },
+    "speaker_codes": "CHI;FAT;GRA;GRF;GRM;MOT;SIS;VIS",
+    "speaker_roles": "Father;Grandfather;Grandmother;Mother;Sister;Target_Child;Visitor",
+    "classifier_counts_all": {
+      "个": 3500,
+      "只": 156,
+      "张": 62,
+      "本": 67,
+      "条": 72
+    },
+    "classifier_counts_chi": {
+      "个": 896,
+      "只": 33,
+      "张": 17,
+      "本": 9,
+      "条": 12
+    }
+  },
+  {
+    "corpus": "Tsay",
+    "collection": "Chinese",
+    "languages": "nan; nan zho eng",
+    "n_transcripts": 438,
+    "n_transcripts_with_target_child_age": 430,
+    "target_child_age_min": 396.6875,
+    "target_child_age_max": 1938.5625,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 522127,
+    "speaker_code_counts": {
+      "BRO": 888,
+      "CHI": 176085,
+      "FAT": 531,
+      "GRF": 1319,
+      "GRM": 19624,
+      "IN1": 32797,
+      "IN2": 7913,
+      "INV": 249881,
+      "MOT": 20233,
+      "OTH": 3588,
+      "SIS": 9268
+    },
+    "speaker_role_counts": {
+      "Brother": 888,
+      "Target_Child": 176085,
+      "Father": 563,
+      "Grandfather": 1287,
+      "Grandmother": 19627,
+      "Investigator": 290591,
+      "Mother": 20233,
+      "Adult": 15,
+      "Child": 196,
+      "Relative": 133,
+      "Unidentified": 3241,
+      "Sister": 9268
+    },
+    "speaker_codes": "BRO;CHI;FAT;GRF;GRM;IN1;IN2;INV;MOT;OTH;SIS",
+    "speaker_roles": "Adult;Brother;Child;Father;Grandfather;Grandmother;Investigator;Mother;Relative;Sister;Target_Child;Unidentified",
+    "classifier_counts_all": {
+      "个": 9709,
+      "只": 9,
+      "本": 1670
+    },
+    "classifier_counts_chi": {
+      "个": 3706,
+      "只": 2,
+      "本": 482
+    }
+  },
+  {
+    "corpus": "Xinjiang",
+    "collection": "Chinese",
+    "languages": "zho; zho eng",
+    "n_transcripts": 1564,
+    "n_transcripts_with_target_child_age": 1519,
+    "target_child_age_min": 1095.75,
+    "target_child_age_max": 2922.0,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 48779,
+    "speaker_code_counts": {
+      "ADU": 5237,
+      "ADU2": 5,
+      "CHI": 43537
+    },
+    "speaker_role_counts": {
+      "Adult": 5242,
+      "Target_Child": 43537
+    },
+    "speaker_codes": "ADU;ADU2;CHI",
+    "speaker_roles": "Adult;Target_Child",
+    "classifier_counts_all": {
+      "个": 7978,
+      "只": 229,
+      "张": 17,
+      "本": 2,
+      "条": 15
+    },
+    "classifier_counts_chi": {
+      "个": 7409,
+      "只": 223,
+      "张": 5,
+      "本": 2,
+      "条": 14
+    }
+  },
+  {
+    "corpus": "YipMatthews",
+    "collection": "Biling",
+    "languages": "eng yue; yue eng",
+    "n_transcripts": 491,
+    "n_transcripts_with_target_child_age": 491,
+    "target_child_age_min": 466.5625,
+    "target_child_age_max": 1650.625,
+    "section": "Biling",
+    "status": "ok",
+    "n_utterances": 404887,
+    "speaker_code_counts": {
+      "ADU": 127,
+      "ALA": 415,
+      "ALC": 506,
+      "ALI": 11798,
+      "ANO": 3445,
+      "ANT": 159,
+      "AUN": 88,
+      "BEL": 40953,
+      "BEM": 28,
+      "BET": 8272,
+      "BRO": 3102,
+      "CAM": 11,
+      "CES": 1856,
+      "CHI": 121220,
+      "CLA": 2027,
+      "COM": 144,
+      "COU": 69,
+      "DAD": 10,
+      "ELA": 19,
+      "ELN": 8605,
+      "EPE": 1,
+      "FAT": 25112,
+      "FRD": 5,
+      "GEM": 713,
+      "GIR": 3,
+      "GRA": 2646,
+      "GRF": 65,
+      "GRJ": 38,
+      "HEL": 9,
+      "HLP": 1575,
+      "HOU": 3222,
+      "INV": 140,
+      "JAM": 126,
+      "JAN": 7,
+      "KEL": 373,
+      "KEN": 282,
+      "KID": 1,
+      "KLY": 458,
+      "LIN": 68558,
+      "MIC": 30042,
+      "MOT": 17015,
+      "PAT": 644,
+      "PEG": 275,
+      "PHY": 12453,
+      "RIC": 465,
+      "SIS": 6318,
+      "SOP": 265,
+      "TIM": 705,
+      "UDA": 26,
+      "UNI": 2,
+      "VIR": 8,
+      "VIS": 93,
+      "WIN": 30388
+    },
+    "speaker_role_counts": {
+      "Adult": 136,
+      "Brother": 4629,
+      "Investigator": 219195,
+      "Relative": 641,
+      "Caretaker": 5581,
+      "Target_Child": 121220,
+      "Sister": 8345,
+      "Media": 144,
+      "Father": 25122,
+      "Sibling": 1,
+      "Visitor": 97,
+      "Girl": 3,
+      "Grandmother": 2691,
+      "Grandfather": 65,
+      "Mother": 17015,
+      "Unidentified": 2
+    },
+    "speaker_codes": "ADU;ALA;ALC;ALI;ANO;ANT;AUN;BEL;BEM;BET;BRO;CAM;CES;CHI;CLA;COM;COU;DAD;ELA;ELN;EPE;FAT;FRD;GEM;GIR;GRA;GRF;GRJ;HEL;HLP;HOU;INV;JAM;JAN;KEL;KEN;KID;KLY;LIN;MIC;MOT;PAT;PEG;PHY;RIC;SIS;SOP;TIM;UDA;UNI;VIR;VIS;WIN",
+    "speaker_roles": "Adult;Brother;Caretaker;Father;Girl;Grandfather;Grandmother;Investigator;Media;Mother;Relative;Sibling;Sister;Target_Child;Unidentified;Visitor",
+    "classifier_counts_all": {
+      "只": 10,
+      "本": 1157
+    },
+    "classifier_counts_chi": {
+      "只": 2,
+      "本": 121
+    }
+  },
+  {
+    "corpus": "Zhou1",
+    "collection": "Chinese",
+    "languages": "zho",
+    "n_transcripts": 50,
+    "n_transcripts_with_target_child_age": 50,
+    "target_child_age_min": 426.125,
+    "target_child_age_max": 1461.0,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 11694,
+    "speaker_code_counts": {
+      "CHI": 3051,
+      "FAT": 71,
+      "GRA": 3,
+      "MOT": 8569
+    },
+    "speaker_role_counts": {
+      "Target_Child": 3051,
+      "Father": 71,
+      "Grandfather": 3,
+      "Mother": 8569
+    },
+    "speaker_codes": "CHI;FAT;GRA;MOT",
+    "speaker_roles": "Father;Grandfather;Mother;Target_Child",
+    "classifier_counts_all": {
+      "个": 1747,
+      "只": 73,
+      "张": 14,
+      "本": 22,
+      "条": 2
+    },
+    "classifier_counts_chi": {
+      "个": 351,
+      "只": 12,
+      "张": 1,
+      "本": 2
+    }
+  },
+  {
+    "corpus": "Zhou2",
+    "collection": "Chinese",
+    "languages": "zho; zho eng",
+    "n_transcripts": 140,
+    "n_transcripts_with_target_child_age": 140,
+    "target_child_age_min": 1077.3125,
+    "target_child_age_max": 2191.5,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 54512,
+    "speaker_code_counts": {
+      "CAM": 1,
+      "CHI": 16078,
+      "FAT": 2,
+      "MOT": 38426,
+      "REC": 2,
+      "RED": 2,
+      "STU": 1
+    },
+    "speaker_role_counts": {
+      "Investigator": 3,
+      "Target_Child": 16078,
+      "Father": 2,
+      "Mother": 38426,
+      "Unidentified": 2,
+      "Student": 1
+    },
+    "speaker_codes": "CAM;CHI;FAT;MOT;REC;RED;STU",
+    "speaker_roles": "Father;Investigator;Mother;Student;Target_Child;Unidentified",
+    "classifier_counts_all": {
+      "个": 9311,
+      "只": 1202,
+      "张": 80,
+      "本": 111,
+      "条": 68
+    },
+    "classifier_counts_chi": {
+      "个": 2865,
+      "只": 168,
+      "张": 22,
+      "本": 21,
+      "条": 21
+    }
+  },
+  {
+    "corpus": "Zhou3",
+    "collection": "Chinese",
+    "languages": "zho",
+    "n_transcripts": 30,
+    "n_transcripts_with_target_child_age": 29,
+    "target_child_age_min": 613.75,
+    "target_child_age_max": 1978.4375,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 24009,
+    "speaker_code_counts": {
+      "CH2": 67,
+      "CHI": 8381,
+      "FAT": 1359,
+      "GRA": 224,
+      "GRF": 67,
+      "GRM": 238,
+      "MOT": 13597,
+      "SHE": 76
+    },
+    "speaker_role_counts": {
+      "Target_Child": 8448,
+      "Father": 1359,
+      "Grandmother": 462,
+      "Grandfather": 67,
+      "Mother": 13597,
+      "Investigator": 76
+    },
+    "speaker_codes": "CH2;CHI;FAT;GRA;GRF;GRM;MOT;SHE",
+    "speaker_roles": "Father;Grandfather;Grandmother;Investigator;Mother;Target_Child",
+    "classifier_counts_all": {
+      "个": 3243,
+      "只": 152,
+      "张": 56,
+      "本": 43,
+      "条": 13
+    },
+    "classifier_counts_chi": {
+      "个": 972,
+      "只": 39,
+      "张": 13,
+      "本": 6,
+      "条": 2
+    }
+  },
+  {
+    "corpus": "ZhouAssessment",
+    "collection": "Chinese",
+    "languages": "zho; zho eng",
+    "n_transcripts": 219,
+    "n_transcripts_with_target_child_age": 0,
+    "target_child_age_min": null,
+    "target_child_age_max": null,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 51827,
+    "speaker_code_counts": {
+      "CHI": 21464,
+      "TEA": 30363
+    },
+    "speaker_role_counts": {
+      "Child": 21464,
+      "Teacher": 30363
+    },
+    "speaker_codes": "CHI;TEA",
+    "speaker_roles": "Child;Teacher",
+    "classifier_counts_all": {
+      "个": 7402,
+      "只": 209,
+      "张": 173,
+      "本": 4,
+      "条": 13
+    }
+  },
+  {
+    "corpus": "ZhouDinner",
+    "collection": "Chinese",
+    "languages": "zho",
+    "n_transcripts": 71,
+    "n_transcripts_with_target_child_age": 68,
+    "target_child_age_min": 1491.4375,
+    "target_child_age_max": 2161.0625,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 17217,
+    "speaker_code_counts": {
+      "ADU": 3,
+      "AUN": 30,
+      "AUT": 26,
+      "BRO": 46,
+      "CHI": 4740,
+      "FAT": 2038,
+      "GFA": 960,
+      "GMO": 2033,
+      "GMO1": 18,
+      "GMO2": 14,
+      "MOT": 7074,
+      "SIS": 235
+    },
+    "speaker_role_counts": {
+      "Adult": 12181,
+      "Child": 296,
+      "Target_Child": 4740
+    },
+    "speaker_codes": "ADU;AUN;AUT;BRO;CHI;FAT;GFA;GMO;GMO1;GMO2;MOT;SIS",
+    "speaker_roles": "Adult;Child;Target_Child",
+    "classifier_counts_all": {
+      "个": 1648,
+      "只": 72,
+      "张": 16,
+      "本": 1,
+      "条": 10
+    },
+    "classifier_counts_chi": {
+      "个": 514,
+      "只": 16,
+      "张": 4,
+      "条": 1
+    }
+  },
+  {
+    "corpus": "ZhouNarratives",
+    "collection": "Chinese",
+    "languages": "zho",
+    "n_transcripts": 247,
+    "n_transcripts_with_target_child_age": 247,
+    "target_child_age_min": 1095.75,
+    "target_child_age_max": 2191.5,
+    "section": "Chinese",
+    "status": "ok",
+    "n_utterances": 20144,
+    "speaker_code_counts": {
+      "CHI": 10177,
+      "INV": 9967
+    },
+    "speaker_role_counts": {
+      "Target_Child": 10177,
+      "Investigator": 9967
+    },
+    "speaker_codes": "CHI;INV",
+    "speaker_roles": "Investigator;Target_Child",
+    "classifier_counts_all": {
+      "个": 4427,
+      "只": 198,
+      "张": 25,
+      "本": 188,
+      "条": 52
+    },
+    "classifier_counts_chi": {
+      "个": 3169,
+      "只": 169,
+      "张": 19,
+      "本": 17,
+      "条": 49
+    }
+  }
+]

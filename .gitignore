@@ -1,0 +1,20 @@
+# Secrets / credentials
+.env
+.env.*
+!.env.example
+
+# Python cache and test artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local tooling / runtime logs
+.claude/
+logs/
+
+# Private research datasets (keep samples in reports/phase3 trackable)
+reports/phase2/phase2_extraction.csv
+reports/phase3/phase3_full_*.csv
+reports/phase3/phase3_full_*.parquet
+reports/final/
+data/private/

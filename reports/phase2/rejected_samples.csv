@@ -1,0 +1,51 @@
+File Name,Collection_Type,Speaker_Code,Speaker_Role,Age,Utterance,%gra,Determiner/Numbers,Determiner_POS,Classifier
+Mandarin/ChangPN/age4/070.xml,Chinese,CHI,Target_Child,1734.9375,坐 到 捷运 站 就 下 车,v v:resc n v adv cl n,就,adv,下
+Mandarin/LiReading/4/r4ymi10.xml,Chinese,MOT,Mother,1156.625,我们 需要 一 张 桌子 来 把 这些 食物 放 在 桌子 上 然后 我们 来 吃 饭 对不对,pro:per v num cl n v:dirc prep pro:dem n v prep n post conj pro:per v:dirc v n adj,来,v:dirc,把
+Mandarin/Zhou1/cs20c.xml,Chinese,MOT,Mother,608.75,那 给 哪 个 吃 啊,conj prep pro:wh cl v sfp,哪,pro:wh,个
+Mandarin/ZhouAssessment/3.5-4/FJ3540linlongxu.xml,Chinese,TEA,Teacher,,你 请 谁 来 煮 你 请 个 小 朋友 进去 煮饭 吧 请 个 这里 好几 个 你 请 一 个,pro:per v cl adj n v:dirc v sfp post quant cl pro:per v num cl,请,,个
+Mandarin/ZhouAssessment/5.5-6/FJ5560xiongxinyang.xml,Chinese,TEA,Teacher,,你 家 有 煮 菜 的 煤气 灶 吗,pro:per n v v n poss n n sfp,你,pro:per,家
+Mandarin/ChangPN/age6/102.xml,Chinese,EXP,Investigator,2252.375,在 家 里 呀 还是 在 学校,prep n post sfp adv prep n,在,prep,家
+Mandarin/ChangPN/grade2/173.xml,Chinese,CHI,Target_Child,2952.4375,这 个 欸 这 个 很 多 次,co det cl adv adj adj,多,adj,次
+Mandarin/TCCM/chw/040100.xml,Chinese,CHI,Target_Child,1491.4375,是 我 妹妹 把 我 链子 弄 进去 了,v:cop pro:per n:relat prep pro:per n v v:dirc asp,妹妹,n:relat,把
+Mandarin/Zhou2/42/ma01.xml,Chinese,CHI,Target_Child,1278.375,我 只 会 拼 这 个,pro:per adv v:aux v det cl,我,pro:per,只
+Mandarin/Zhou1/cs26h.xml,Chinese,CHI,Target_Child,780.9375,妈妈 那边 有 个 包,n:relat post v cl n,有,v,个
+Mandarin/LiReading/4/r4yfl6.xml,Chinese,MOT,Mother,1491.4375,你 走 了 小 猫 伤心 了 对 吧,pro:per v:dirc asp adj n adj asp adj sfp,了,asp,对
+Mandarin/LiZhou/4/03.xml,Chinese,CH2,Target_Child,,我 来 画 个 鸟 窝,pro:per v:dirc v cl n n,画,v,个
+Mandarin/ZhouDinner/middle/50.xml,Chinese,CHI,Target_Child,1643.625,我 一 把 全 都 拿 掉,pro:per adv prep adv adv v v:resc,一,adv,把
+Mandarin/TCCM/yang/020600.xml,Chinese,CHI,Target_Child,913.125,他 叫 我们 看 家,pro:per v pro:per v n,看,v,家
+Mandarin/LiReading/4/r4yml8.xml,Chinese,CHI,Target_Child,1461.0,椅子 爬 窗 架,n v n v,窗,n,架
+Mandarin/ZhouAssessment/4.5-5/FJ4550linsichen.xml,Chinese,TEA,Teacher,,对 那 你 可以 把 它 拼 在1 哪里,adj conj pro:per v:aux prep pro:per v prep pro:wh,可以,v:aux,把
+Mandarin/LiReading/5/r5yfl13.xml,Chinese,MOT,Mother,1887.125,然后 他 觉得 妈妈 在 家 的时候 这些 怪物 都 是 怎么样,conj pro:per v n:relat prep n post pro:dem n adv v:cop adv:wh,在,prep,家
+Mandarin/ZhouNarratives/Robber/3/3yf2.xml,Chinese,INV,Investigator,1095.75,哦 那 这 个 人 还有 这 个 人 还有 这 个 人 咦 还有 一 个 人 这 个 人,co conj det cl n conj det cl n conj det cl n conj det cl n,一,,个
+Mandarin/ZhouAssessment/3.5-4/NJzhangyifei.xml,Chinese,CHI,Child,,我们 家 吃饭 烧 这 个,pro:per n v v det cl,我们,pro:per,家
+Mandarin/ZhouAssessment/3.5-4/XIAN3540hujiaxuan.xml,Chinese,CHI,Child,,我 先 把 他们 都 请 出来,pro:per adv prep pro:per adv v v:dirc,先,adv,把
+Mandarin/LiReading/4/r4yfl18.xml,Chinese,MOT,Mother,1461.0,所以 他 一 脚 就 把 垃圾桶 踢 飞 了,conj pro:per num cl adv prep n v v:resc asp,就,adv,把
+Mandarin/LiReading/5/r5yfl7.xml,Chinese,MOT,Mother,1765.375,然后 就 有 种子 种 成 大 树 就 可以 有 木头 做成 桌子 了 对不对,conj adv v n v cl adj n adv v:aux v n v n asp adj,种子,n,种
+Mandarin/Xinjiang/ENNI/201204/ykm105.xml,Chinese,CHI,Target_Child,2191.5,大象 玩 的时候 不 小心 把 飞机 弄 到 河 里 去 了,n v post adv v prep n v v:resc n post v:dirc asp,小心,v,把
+Mandarin/Xinjiang/AcadLang/201204/ded103.xml,Chinese,CHI,Target_Child,1826.25,不 知道 哪个 是 自己 的 就 把 名字 写 上,,就,,把
+Mandarin/ZhouNarratives/Robber/6/6ym13.xml,Chinese,CHI,Target_Child,2191.5,然后 马 只 能 往 后 跑,conj n adv v:aux prep post v,马,n,只
+Mandarin/Zhou2/66/mb14.xml,Chinese,MOT,Mother,2008.875,爸爸 只好 穿 上 衣服 又 把 这 只 皮皮鼠 送 到 了 医院,n:relat adv v v:dirc n adv prep det cl n v v:resc asp n,又,adv,把
+Mandarin/Xinjiang/AcadLang/201306/tkxx116.xml,Chinese,CHI,Target_Child,1826.25,我们 家 里 有 苹果,pro:per n post v n,我们,pro:per,家
+Mandarin/Xinjiang/AcadLang/201204/fyz203.xml,Chinese,CHI,Target_Child,1978.4375,那 个 那 个 那 个 市场 买 过,,那,,个
+Mandarin/ZhouAssessment/5-5.5/XIAN5055mayuqiao.xml,Chinese,TEA,Teacher,,可能 是 有 人 把 他 带 到 这里 了 吧,adv v:cop v n prep pro:per v v:resc post asp sfp,人,n,把
+Mandarin/ZhouAssessment/4-4.5/XIAN4045yangzihao.xml,Chinese,TEA,Teacher,,好 把 它 放 上去 吧,adj prep pro:per v v:dirc sfp,好,adj,把
+Mandarin/LiReading/4/r4yfi7.xml,Chinese,MOT,Mother,1521.875,就 像 你 现在 仰 着 头 看 妈妈 一样 对不对,adv prep pro:per adv v asp n v n:relat adj adj,着,asp,头
+Mandarin/Tong/011017.xml,Chinese,MOT,Mother,686.625,豆豉 我们 家 有 吗,n pro:per n v sfp,我们,pro:per,家
+Mandarin/LiReading/6/r6ymi19.xml,Chinese,MOT,Mother,2130.625,对 对 对,adj,对,,对
+Mandarin/ChangPN/grade4/241.xml,Chinese,EXP,Investigator,3743.8125,你 有没有 把 东西 打翻 过,pro:per v prep n v asp,有没有,v,把
+Mandarin/Xinjiang/ENNI/201209/xhxb07.xml,Chinese,ADU,Adult,1826.25,嗯 好的 这 是 第二 个 故事 对 吧,co adj pro:dem v:cop num cl n adj sfp,故事,n,对
+Mandarin/ZhouAssessment/4-4.5/ZB4045gaojinhui.xml,Chinese,CHI,Child,,我 家 只是 一块 砖 一块 砖 的,pro:per n adv adv n adv n poss,我,pro:per,家
+Mandarin/TCCM/wang/030200.xml,Chinese,MOT,Mother,1156.625,唉唷 对 了,co v asp,唉唷,co,对
+Mandarin/Zhou1/cs20e.xml,Chinese,MOT,Mother,608.75,放 在 哪 个 盒子 里 的,v prep pro:wh cl n post poss,哪,pro:wh,个
+Mandarin/LiReading/6/r6yml19.xml,Chinese,MOT,Mother,2221.9375,可 他 说 的 不 对,adv pro:per v cleft adv adj,不,adv,对
+Mandarin/Zhou3/000610.xml,Chinese,CHI,Target_Child,1339.25,就 只 有 妈妈 一 个 人 了,adv adv v n:relat num cl n asp,就,adv,只
+Mandarin/Xinjiang/ENNI/201204/sdfydb07.xml,Chinese,CHI,Target_Child,2191.5,我 拿 下 水 里 去 了,pro:per v v:dirc n post v:dirc asp,拿,v,下
+Mandarin/ZhouAssessment/5-5.5/FJ5055kangxinyue.xml,Chinese,TEA,Teacher,,没关系 这 是 你 的 家 你 来 定,adj pro:dem v:cop pro:per poss n pro:per v:dirc v,的,poss,家
+Mandarin/LiReading/4/r4yml4.xml,Chinese,CHI,Target_Child,1521.875,这 明明 有 个 垃圾,pro:dem adv v cl n,有,v,个
+Mandarin/LiReading/4/r4ymi14.xml,Chinese,MOT,Mother,1430.5625,用 爪子 把 沙发 给 抓 破 了,prep n prep n v v adj asp,爪子,n,把
+Mandarin/Xinjiang/ENNI/201306/syx105-w.xml,Chinese,CHI,Target_Child,1917.5625,贴 到 他 的 那 个 腿 他 的 那 个 腿 上,v v:resc pro:per cleft det cl n post,那,,个
+Mandarin/LiReading/5/r5yfi10.xml,Chinese,MOT,Mother,1826.25,让 他 给 他 一 个 家,v pro:per v pro:per num cl n,个,cl,家
+Mandarin/Zhou2/66/ma02.xml,Chinese,MOT,Mother,2008.875,那 你 就 把 它 腿 下 下来,conj pro:per adv prep pro:per n v:dirc v:dirc,腿,n,下
+Mandarin/Zhou2/48/fa09.xml,Chinese,MOT,Mother,1461.0,你好 天 上 的 星星,co n post poss n:prop,你好,co,天
+Mandarin/LiReading/5/r5yfi6.xml,Chinese,MOT,Mother,1734.9375,你 看 虫子 把 果实 吃 了,pro:per v n prep n v asp,虫子,n,把
+Mandarin/ChangPN/grade4/234.xml,Chinese,CHI,Target_Child,3713.375,然后 又 打 一 次,conj adv v adv adj,一,adv,次
