@@ -25,13 +25,13 @@ Investigating numeral classifier development in Mandarin-speaking children using
 :::
 
 ::: {.stat-card}
-[33]{.stat-number}
+[34]{.stat-number}
 [Classifier types]{.stat-label}
 :::
 
 ::: {.stat-card}
 [20/20]{.stat-number}
-[Sample annotation accuracy]{.stat-label}
+[Sample QA pass rate]{.stat-label}
 :::
 
 :::
@@ -45,27 +45,15 @@ This study examines how Mandarin-speaking children acquire numeral classifiers, 
 
 ### Pipeline Architecture
 
-::: {.pipeline-flow}
-::: {.pipeline-step}
-**Phase 1**
-Corpus Inventory
-:::
-[&rarr;]{.pipeline-arrow}
-::: {.pipeline-step}
-**Phase 2**
-SQL Extraction
-:::
-[&rarr;]{.pipeline-arrow}
-::: {.pipeline-step .active}
-**Phase 3**
-LLM Annotation
-:::
-[&rarr;]{.pipeline-arrow}
-::: {.pipeline-step}
-**Phase 4**
-Analysis
-:::
-:::
+<div class="pipeline-flow">
+<div class="pipeline-step"><strong>Phase 1</strong><br>Corpus Inventory</div>
+<span class="pipeline-arrow">&rarr;</span>
+<div class="pipeline-step"><strong>Phase 2</strong><br>SQL Extraction</div>
+<span class="pipeline-arrow">&rarr;</span>
+<div class="pipeline-step active"><strong>Phase 3</strong><br>LLM Annotation</div>
+<span class="pipeline-arrow">&rarr;</span>
+<div class="pipeline-step"><strong>Phase 4</strong><br>Analysis</div>
+</div>
 
 
 ### Research Questions (Working)
@@ -78,7 +66,7 @@ Analysis
 
 ::: {.callout-note}
 ## Current Status
-The pipeline has completed Phases 1 and 2 (corpus inventory and deterministic extraction) and Phase 3 prompt validation. A **20-row random PI review sample** has been annotated with DeepSeek v3.2-speciale. The full 70,655-row production run is pending PI approval of the output schema and annotation quality.
+The pipeline has completed Phases 1 and 2 (corpus inventory and deterministic extraction) and Phase 3 prompt validation. A **20-row random PI review sample** has been annotated with DeepSeek v3.2-speciale. The full 70,655-row production run is pending PI approval of the output schema and annotation quality. Estimated cost for the full run is **$120 to $140**. All production results will require human verification; the pipeline includes automated flags to prioritize rows most likely to need review.
 :::
 
 

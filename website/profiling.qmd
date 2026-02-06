@@ -6,6 +6,8 @@ title: "Data Profile"
 
 The Phase 2 extraction pulled all classifier contexts from monolingual Mandarin CHILDES corpora where the token immediately preceding a target classifier has a POS tag of `num*`, `det`, or `pro:dem`.
 
+*Summary statistics below are computed from the Phase 2 extraction (childes-db v2021.1, extraction date 2026-02-05). Values will be recomputed if the extraction is re-run.*
+
 ```{python}
 #| label: setup
 #| echo: false
@@ -19,7 +21,7 @@ from itables import show
 
 ::: {.callout-important}
 ## Dataset Scale
-**70,655** classifier contexts extracted from **18** CHILDES corpora using **33** target classifiers. Age range: **1.2 to 10.5 years**. Missing age: **12.4%** (8,793 rows).
+**70,655** classifier contexts extracted from **18** CHILDES corpora using **34** target classifiers. Age range: **1.2 to 10.5 years**. Missing age: **12.4%** (8,793 rows).
 :::
 
 
@@ -62,6 +64,22 @@ show(speaker_data, paging=False, ordering=True, classes="display compact")
 ::: {.callout-tip}
 ## Child vs. Adult
 Target children produce **37.1%** of classifier contexts. Adult speech (all non-child roles) totals roughly **62.9%**, providing the acquisition input model for child-vs-adult comparison (RQ4).
+:::
+
+::: {.callout-note}
+## Speaker Role Glossary
+Speaker roles come directly from CHILDES transcript metadata.
+
+| Role | Description |
+|------|-------------|
+| **Target_Child** | The focal child being studied in the recording session |
+| **Child** | A non-target child present during the session (sibling, peer) |
+| **Mother** | The target child's mother |
+| **Father** | The target child's father |
+| **Investigator** | A researcher conducting the session |
+| **Teacher** | A teacher or classroom instructor |
+| **Adult** | Other adult speakers not categorized above |
+
 :::
 
 

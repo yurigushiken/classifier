@@ -18,7 +18,7 @@ Enumerated all 39 Chinese-language corpora in CHILDES via childes-db. Collected 
 
 ## Phase 2: Deterministic Extraction
 
-### Target Classifiers (33)
+### Target Classifiers (34)
 
 个, 条, 只, 本, 张, 位, 头, 件, 年, 次, 天, 元, 下, 块, 岁, 名, 句, 家, 片, 份, 分, 部, 场, 把, 根, 颗, 辆, 种, 笔, 群, 对, 架, 组, 碗
 
@@ -47,13 +47,13 @@ WHERE ... AND c.gloss IN (classifier_list)
 
 | Model | Provider | Result |
 |-------|----------|--------|
-| DeepSeek v3.2-speciale | OpenRouter | **Selected for production** |
+| DeepSeek v3.2-speciale | OpenRouter | **Recommended for production** |
 | GPT-5.2-Codex | OpenRouter | Equivalent accuracy; minor adj-in-noun issue |
 | Kimi k2.5 | OpenRouter | Equivalent accuracy |
 
 : {.striped}
 
-All models scored **20/20 clean** on both the focused validation sample (20 rows with high-risk cases) and a random sample (20 rows). DeepSeek selected for cleanest noun identification and consistent English rationales.
+All models scored **20/20 clean** on both the focused validation sample (20 rows with high-risk cases) and a random sample (20 rows). DeepSeek recommended for production based on cleanest noun identification and consistent English rationales. The full 70,655-row production run is pending PI approval.
 
 ### Parameters
 
@@ -105,6 +105,27 @@ All models scored **20/20 clean** on both the focused validation sample (20 rows
 : {.striped .hover}
 
 
+## Estimated Cost
+
+Based on three 20-row pilot runs (60 API calls total) with DeepSeek v3.2-speciale via OpenRouter:
+
+| Metric | Value |
+|--------|-------|
+| Mean cost per row | $0.0019 |
+| Pilot total (60 rows) | $0.11 |
+| Estimated full run (70,655 rows) | $120 to $140 |
+| With retry/re-run overhead | $135 to $155 |
+
+: {.striped}
+
+Per-row cost varies slightly by utterance length and reasoning complexity. The estimate uses the mean across all pilot runs, including cost spikes on longer utterances.
+
+
+## Human Verification
+
+All LLM-annotated results will require human verification. The `flag_for_review` column identifies rows that are most likely to need attention, based on four trigger conditions (colloquial tolerance, disputed convention, implicit noun inference, multi-instance disambiguation). However, flagged rows are a prioritization aid, not a substitute for reviewing the full dataset. Unflagged rows may still contain errors that fall outside the trigger conditions.
+
+
 ## Known Limitations
 
 ::: {.callout-warning}
@@ -115,6 +136,8 @@ All models scored **20/20 clean** on both the focused validation sample (20 rows
 2. **Non-个 misuse undetected.** `overuse_of_ge` only captures overuse of the general classifier. A child using the wrong specific classifier (e.g., 只 for 笔 instead of 支) is marked `overuse_of_ge = False`.
 
 3. **Multi-instance ambiguity.** When an utterance contains multiple instances of the same Preceding Word + Classifier pair, the model may select either instance.
+
+4. **No formal inter-annotator agreement yet.** Current evaluation is consistency and format QA (20/20 JSON completeness on two samples). Formal human-annotated agreement scoring is planned for a subsequent validation phase.
 :::
 
 
