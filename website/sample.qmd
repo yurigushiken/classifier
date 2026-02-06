@@ -28,6 +28,52 @@ from itables import show
 
 df = pd.read_csv("../reports/phase3/phase3_pi_review_results.csv")
 
+# Backfill semantic class for legacy sample files that predate this column.
+if "specific_semantic_class" not in df.columns:
+    semantic_map = {
+        "个": "general",
+        "只": "animacy",
+        "头": "animacy",
+        "位": "animacy",
+        "名": "animacy",
+        "条": "shape",
+        "张": "shape",
+        "片": "shape",
+        "根": "shape",
+        "颗": "granular_piece",
+        "本": "artifact_function",
+        "部": "artifact_function",
+        "辆": "artifact_function",
+        "架": "artifact_function",
+        "把": "artifact_function",
+        "件": "artifact_function",
+        "碗": "container_portion",
+        "份": "container_portion",
+        "元": "measure_currency",
+        "分": "measure_currency",
+        "块": "measure_portion",
+        "年": "temporal_event",
+        "次": "temporal_event",
+        "天": "temporal_event",
+        "岁": "temporal_event",
+        "场": "event_occurrence",
+        "下": "event_occurrence",
+        "种": "type_kind",
+        "句": "discourse_unit",
+        "家": "institution_household",
+        "组": "collective",
+        "群": "collective",
+        "对": "collective",
+        "笔": "transaction_stroke",
+    }
+    mapped = df["Classifier"].map(semantic_map)
+    coverage = float(mapped.notna().mean()) if len(mapped) else 0.0
+    if coverage < 0.5:
+        # Legacy CSVs may contain mojibake classifier strings; avoid misleading labels.
+        df["specific_semantic_class"] = "legacy_unavailable"
+    else:
+        df["specific_semantic_class"] = mapped.fillna("other")
+
 # Select key columns for the review table
 display_cols = [
     "Utterance",
