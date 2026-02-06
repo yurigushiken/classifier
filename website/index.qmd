@@ -102,8 +102,3 @@ The pipeline has completed Phases 1 and 2 (corpus inventory and deterministic ex
 
 : {.striped .hover}
 
----
-
-::: {.attribution}
-*Built by Mischa Gushiken (Yuri) with Claude 4.6 Opus and GPT-5.3-Codex | February 2026*
-:::

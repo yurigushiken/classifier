@@ -16,7 +16,7 @@ website:
       - href: methods.qmd
         text: Methods
   page-footer:
-    left: "Mandarin Classifier Acquisition Study"
+    left: "Built by Mischa Gushiken (Yuri) with Claude 4.6 Opus and GPT-5.3-Codex | February 2026"
     center: "Data: CHILDES (MacWhinney, 2000) via childes-db (Sanchez et al., 2019)"
     right: "Pipeline v0.1"
 
