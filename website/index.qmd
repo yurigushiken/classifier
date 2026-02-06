@@ -46,13 +46,25 @@ This study examines how Mandarin-speaking children acquire numeral classifiers, 
 ### Pipeline Architecture
 
 <div class="pipeline-flow">
-<div class="pipeline-step"><strong>Phase 1</strong><br>Corpus Inventory</div>
+<div class="pipeline-step" tabindex="0">
+  <strong>Phase 1</strong><br>Corpus Inventory
+  <span class="pipeline-tooltip">Inventory Mandarin CHILDES corpora and collect transcript/speaker/age metadata.</span>
+</div>
 <span class="pipeline-arrow">&rarr;</span>
-<div class="pipeline-step"><strong>Phase 2</strong><br>SQL Extraction</div>
+<div class="pipeline-step" tabindex="0">
+  <strong>Phase 2</strong><br>SQL Extraction
+  <span class="pipeline-tooltip">Query childes-db and extract classifier contexts with deterministic filters and metadata IDs.</span>
+</div>
 <span class="pipeline-arrow">&rarr;</span>
-<div class="pipeline-step active"><strong>Phase 3</strong><br>LLM Annotation</div>
+<div class="pipeline-step active" tabindex="0">
+  <strong>Phase 3</strong><br>LLM Annotation
+  <span class="pipeline-tooltip">Annotate each row with noun, conventional classifier, overuse judgment, and review flags.</span>
+</div>
 <span class="pipeline-arrow">&rarr;</span>
-<div class="pipeline-step"><strong>Phase 4</strong><br>Analysis</div>
+<div class="pipeline-step" tabindex="0">
+  <strong>Phase 4</strong><br>Analysis
+  <span class="pipeline-tooltip">Aggregate by age/speaker/classifier class, run QA, and produce publication-ready tables.</span>
+</div>
 </div>
 
 

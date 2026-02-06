@@ -115,6 +115,8 @@ table.dataTable {
   text-align: center;
   font-weight: 600;
   min-width: 140px;
+  position: relative;
+  cursor: help;
 }
 
 .pipeline-step.active {
@@ -125,6 +127,50 @@ table.dataTable {
 .pipeline-arrow {
   font-size: 1.5rem;
   color: #adb5bd;
+}
+
+.pipeline-tooltip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%);
+  z-index: 50;
+  width: 250px;
+  padding: 0.55rem 0.65rem;
+  border-radius: 6px;
+  background: #1f2d3d;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.35;
+  text-align: left;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.14s ease-in-out;
+}
+
+.pipeline-tooltip::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #1f2d3d transparent transparent transparent;
+}
+
+.pipeline-step:hover .pipeline-tooltip,
+.pipeline-step:focus-visible .pipeline-tooltip {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .pipeline-tooltip {
+    width: 210px;
+    font-size: 0.72rem;
+  }
 }
 
 /* Callout refinements */
