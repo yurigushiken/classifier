@@ -108,7 +108,7 @@ All models scored **20/20 clean** on both the focused validation sample (20 rows
 
 ## Schema Crosswalk (PI Design -> Current Pipeline)
 
-The table below maps the original PI spreadsheet vision to the current reproducible schema.
+The table below maps the [original PI spreadsheet](https://docs.google.com/spreadsheets/d/1Z01s1mhecqIbP28sWWG-SP5LWnf0SVxzIpq6NXMU3Sw/edit?usp=drive_link) to the current reproducible schema.
 
 | Original PI Column | Current Field(s) | Notes |
 |---|---|---|
@@ -169,7 +169,7 @@ All LLM-annotated results will require human verification. The `flag_for_review`
 
 ## Manuscript Methods Draft (Working)
 
-*The following is a draft of the methods section for the manuscript. It is intended as a starting point for PI revision.*
+*The following is a draft of the methods section for the manuscript. All numbers and procedures below reflect the current state of the pipeline as of February 2026. It is intended as a starting point for PI revision.*
 
 ### Data
 
