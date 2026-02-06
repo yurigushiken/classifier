@@ -97,7 +97,13 @@ The pipeline has completed Phases 1 and 2 (corpus inventory and deterministic ex
 
 | File | Rows | Description |
 |------|------|-------------|
-| [Phase 3 Annotated Sample (CSV)](data/phase3_pi_review_sample.csv) | 20 | LLM-annotated random sample with all output columns |
+| [Phase 3 Annotated Sample (CSV)](data/phase3_annotated_sample.csv) | 20 | LLM-annotated random sample with all output columns |
 | [Phase 2 Full Extraction (CSV)](data/phase2_extraction_full.csv) | 70,655 | Complete deterministic extraction (pre-annotation) |
 
 : {.striped .hover}
+
+---
+
+::: {.attribution}
+*Built by Mischa Gushiken (Yuri) with Claude 4.6 Opus and GPT-5.3-Codex | February 2026*
+:::

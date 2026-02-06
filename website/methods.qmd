@@ -48,8 +48,8 @@ WHERE ... AND c.gloss IN (classifier_list)
 | Model | Provider | Result |
 |-------|----------|--------|
 | DeepSeek v3.2-speciale | OpenRouter | **Recommended for production** |
-| GPT-5.2-Codex | OpenRouter | Equivalent accuracy; minor adj-in-noun issue |
-| Kimi k2.5 | OpenRouter | Equivalent accuracy |
+| GPT-5.2-Codex | OpenRouter | Equivalent QA/completeness on pilot samples; minor adj-in-noun issue |
+| Kimi k2.5 | OpenRouter | Equivalent QA/completeness on pilot samples |
 
 : {.striped}
 

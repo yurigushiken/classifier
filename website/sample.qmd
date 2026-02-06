@@ -4,7 +4,7 @@ title: "PI Review Sample"
 
 ## Annotated Sample (n = 20)
 
-A random sample (seed = 99, n = 20) drawn from the 70,655 Phase 2 rows, annotated by **DeepSeek v3.2-speciale** (temperature 0.3, reasoning effort = medium). This sample was not used during prompt development and serves as an unseen sanity check of annotation format and consistency. It is not a gold-standard accuracy evaluation; all production results will require human verification.
+Hi Shan An — below is a random sample (seed = 99, n = 20) drawn from the 70,655 Phase 2 rows, annotated by **DeepSeek v3.2-speciale** (temperature 0.3, reasoning effort = medium). This sample was not used during prompt development and serves as an unseen sanity check of annotation format and consistency. It is not a gold-standard accuracy evaluation; all production results will require human verification.
 
 ::: {.callout-note}
 ## Reproducibility
@@ -13,7 +13,7 @@ This sample is fully reproducible from the Phase 2 extraction CSV using random s
 
 ::: {.callout-tip}
 ## Interactive Table
-Click column headers to sort, use the search box to filter, or scroll to browse. Key annotation columns are shown below; expand "Full Data" for all columns. [Download this sample as CSV](data/phase3_pi_review_sample.csv).
+Click column headers to sort, use the search box to filter, or scroll to browse. Key annotation columns are shown below; expand "Full Data" for all columns. [Download this sample as CSV](data/phase3_annotated_sample.csv).
 :::
 
 ```{python}
