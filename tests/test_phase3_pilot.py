@@ -62,6 +62,11 @@ def test_output_headers_include_new_fields():
         "rationale",
         "age_years",
         "age_available",
+        "utterance_id",
+        "utterance_order",
+        "classifier_token_order",
+        "transcript_id",
+        "determiner_type",
     ]:
         assert field in OUTPUT_HEADERS
 
@@ -129,6 +134,18 @@ def test_compute_age_fields_with_missing_age():
 
     assert row["age_available"] is False
     assert row["age_years"] == ""
+
+
+def test_compute_age_fields_backfills_determiner_type():
+    row = _compute_age_fields({"Age": "365.25", "Determiner/Numbers": "这"})
+
+    assert row["determiner_type"] == "demonstrative"
+
+
+def test_compute_age_fields_preserves_existing_determiner_type():
+    row = _compute_age_fields({"Age": "365.25", "Determiner/Numbers": "这", "determiner_type": "demonstrative"})
+
+    assert row["determiner_type"] == "demonstrative"
 
 
 def test_apply_response_extracts_conventional_classifier_zh():

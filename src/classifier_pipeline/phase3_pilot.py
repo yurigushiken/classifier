@@ -12,6 +12,7 @@ from typing import Iterable, Optional
 import requests
 
 from classifier_pipeline.phase2_extraction import OUTPUT_HEADERS as PHASE2_HEADERS
+from classifier_pipeline.phase2_extraction import compute_determiner_type
 from classifier_pipeline.prompts import build_messages
 
 OUTPUT_HEADERS = PHASE2_HEADERS + [
@@ -133,15 +134,17 @@ def _compute_age_fields(row: dict[str, str]) -> dict[str, str]:
     if not age_raw:
         row["age_available"] = False
         row["age_years"] = ""
-        return row
-    try:
-        age_days = float(age_raw)
-    except ValueError:
-        row["age_available"] = False
-        row["age_years"] = ""
-        return row
-    row["age_available"] = True
-    row["age_years"] = round(age_days / 365.25, 1)
+    else:
+        try:
+            age_days = float(age_raw)
+        except ValueError:
+            row["age_available"] = False
+            row["age_years"] = ""
+        else:
+            row["age_available"] = True
+            row["age_years"] = round(age_days / 365.25, 1)
+    if not row.get("determiner_type"):
+        row["determiner_type"] = compute_determiner_type(row.get("Determiner/Numbers", ""))
     return row
 
 

@@ -1,0 +1,121 @@
+---
+title: "Methods"
+---
+
+## Data Source
+
+- **Corpus:** CHILDES / TalkBank (MacWhinney, 2000)
+- **Access:** childes-db (Sanchez et al., 2019) --- programmatic SQL access
+- **Database version:** 2021.1
+- **Language:** Mandarin Chinese (zho); excludes Cantonese (yue) and Min Nan (nan)
+- **Collection filter:** `collection_name = 'Chinese'` (monolingual only)
+
+
+## Phase 1: Corpus Inventory
+
+Enumerated all 39 Chinese-language corpora in CHILDES via childes-db. Collected per-corpus metadata: transcript counts, utterance counts, speaker codes, age ranges, and classifier token frequencies.
+
+
+## Phase 2: Deterministic Extraction
+
+### Target Classifiers (33)
+
+个, 条, 只, 本, 张, 位, 头, 件, 年, 次, 天, 元, 下, 块, 岁, 名, 句, 家, 片, 份, 分, 部, 场, 把, 根, 颗, 辆, 种, 笔, 群, 对, 架, 组, 碗
+
+### Extraction Logic
+
+For each classifier token in the corpus, the immediately preceding token is checked. If the preceding token's POS tag is `num*` (numeral), `det` (determiner), or `pro:dem` (demonstrative pronoun), the row is included.
+
+```sql
+-- Core join logic
+SELECT ...
+FROM token c
+JOIN token p
+    ON p.utterance_id = c.utterance_id
+   AND p.token_order = c.token_order - 1
+JOIN utterance u ON u.id = c.utterance_id
+JOIN transcript t ON t.id = c.transcript_id
+WHERE ... AND c.gloss IN (classifier_list)
+```
+
+### Output: 70,655 rows from 18 corpora
+
+
+## Phase 3: LLM-Assisted Annotation
+
+### Model Selection
+
+| Model | Provider | Result |
+|-------|----------|--------|
+| DeepSeek v3.2-speciale | OpenRouter | **Selected for production** |
+| GPT-5.2-Codex | OpenRouter | Equivalent accuracy; minor adj-in-noun issue |
+| Kimi k2.5 | OpenRouter | Equivalent accuracy |
+
+: {.striped}
+
+All models scored **20/20 clean** on both the focused validation sample (20 rows with high-risk cases) and a random sample (20 rows). DeepSeek selected for cleanest noun identification and consistent English rationales.
+
+### Parameters
+
+- **Temperature:** 0.3 (lowered from 1.0 after inconsistency on borderline nouns)
+- **Reasoning:** `effort = "medium"` (resolved 3/20 malformed rows from v3)
+- **Response format:** JSON with enforced schema
+- **Concurrency:** asyncio.Semaphore, MAX_CONCURRENT = 10
+
+
+### Prompt Design (4 iterations)
+
+::: {.callout-note collapse="true"}
+## Expand: Prompt Iteration History
+
+| Version | Changes | Result |
+|---------|---------|--------|
+| v1 | Initial few-shot + JSON schema | 2/20 list outputs, mixed noun format |
+| v2 | Added Focus Constraint + noun standardization | 20/20 clean |
+| v3 | Demonstrative-copula rule, dual CL columns, compound nouns, rationale cap. Temp &rarr; 0.3 | 17/20 clean (3 malformed on multi-noun) |
+| v4 | Added reasoning.effort="medium". Benchmarked 3 models. | All models: 20/20 clean on both samples |
+
+: {.striped}
+:::
+
+### Key Prompt Features (Final v4)
+
+1. **Five numbered analysis rules** covering noun identification, convention lookup, classifier type, overuse judgment, and demonstrative-copula disambiguation
+2. **Compound noun instruction** --- treat multi-morpheme nouns as units (图画书 not 书)
+3. **Focus constraint** --- analyze only the specific target classifier instance following the specified Preceding Word
+4. **Dual output format** --- `conventional_classifier` (pinyin) + `conventional_classifier_zh` (Chinese)
+5. **Four few-shot examples** matching actual input format (Chinese + POS tags)
+6. **One-sentence rationale cap**
+
+### Output Schema
+
+| Field | Description |
+|-------|-------------|
+| `identified_noun` | The noun modified by the classifier (Simplified Chinese), or `OMITTED` |
+| `conventional_classifier` | Standard adult classifier (pinyin) |
+| `conventional_classifier_zh` | Standard adult classifier (Simplified Chinese) |
+| `classifier_type` | `General` (个) or `Specific` |
+| `overuse_of_ge` | True if 个 was used where a specific classifier is conventional |
+| `rationale` | One-sentence explanation |
+
+: {.striped .hover}
+
+
+## Known Limitations
+
+::: {.callout-warning}
+## Limitations to Discuss
+
+1. **No ground-truth lookup table** --- the LLM relies on its own knowledge of conventional classifiers, which may vary for borderline nouns (e.g., 杯子, 肉圆, 怪物).
+
+2. **Non-个 misuse undetected** --- `overuse_of_ge` only captures overuse of the general classifier. A child using the wrong specific classifier (e.g., 只 for 笔 instead of 支) is marked `overuse_of_ge = False`.
+
+3. **Multi-instance ambiguity** --- when an utterance contains multiple instances of the same Preceding Word + Classifier pair, the model may select either instance.
+:::
+
+
+## References
+
+- MacWhinney, B. (2000). *The CHILDES Project: Tools for Analyzing Talk*. Lawrence Erlbaum Associates.
+- Sanchez, A., Meylan, S. C., Braginsky, M., MacDonald, K. E., Yurovsky, D., & Frank, M. C. (2019). childes-db: A flexible and reproducible interface to the Child Language Data Exchange System. *Behavior Research Methods*, 51(4), 1928--1941.
+- Erbaugh, M. S. (1986). Taking stock: The development of Chinese noun classifiers historically and in young children. In C. Craig (Ed.), *Noun Classes and Categorization* (pp. 399--436). John Benjamins.

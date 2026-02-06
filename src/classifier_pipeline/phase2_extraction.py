@@ -18,6 +18,11 @@ OUTPUT_HEADERS = [
     "%gra",
     "Determiner/Numbers",
     "Classifier",
+    "utterance_id",
+    "utterance_order",
+    "classifier_token_order",
+    "transcript_id",
+    "determiner_type",
     "Classifier type",
     "Over use of Ge...",
 ]
@@ -33,6 +38,10 @@ REJECTED_HEADERS = [
     "Determiner/Numbers",
     "Determiner_POS",
     "Classifier",
+    "utterance_id",
+    "utterance_order",
+    "classifier_token_order",
+    "transcript_id",
 ]
 
 FULL_CLASSIFIERS = [
@@ -78,6 +87,31 @@ DEFAULT_EXCLUDE_LANGS = ("yue", "nan")
 DEFAULT_COLLECTIONS = ("Chinese",)
 
 
+DEMONSTRATIVE_TOKENS = frozenset({"这", "那", "此", "该"})
+INTERROGATIVE_TOKENS = frozenset({"几", "哪"})
+QUANTIFIER_TOKENS = frozenset({"每", "各"})
+
+
+def compute_determiner_type(token: str) -> str:
+    """Classify a determiner/number token into a semantic type.
+
+    Since Phase 2 extraction already filters to num*, det, and pro:dem POS tags,
+    every token in the Determiner/Numbers column belongs to one of these categories.
+    """
+    token = token.strip()
+    if not token:
+        return "unknown"
+    if token in DEMONSTRATIVE_TOKENS:
+        return "demonstrative"
+    if token in INTERROGATIVE_TOKENS:
+        return "interrogative"
+    if token in QUANTIFIER_TOKENS:
+        return "quantifier"
+    if token.startswith("第"):
+        return "ordinal"
+    return "numeral"
+
+
 def is_number_or_determiner(part_of_speech: Optional[str]) -> bool:
     if not part_of_speech:
         return False
@@ -118,6 +152,7 @@ def build_collection_clause(column: str, collections: Sequence[str]) -> tuple[st
 
 
 def build_output_row(record: dict[str, object]) -> dict[str, object]:
+    determiner = record.get("determiner") or ""
     return {
         "File Name": record.get("file_name"),
         "Collection_Type": record.get("collection_type"),
@@ -126,8 +161,13 @@ def build_output_row(record: dict[str, object]) -> dict[str, object]:
         "Age": record.get("age"),
         "Utterance": record.get("utterance"),
         "%gra": record.get("gra"),
-        "Determiner/Numbers": record.get("determiner"),
+        "Determiner/Numbers": determiner,
         "Classifier": record.get("classifier"),
+        "utterance_id": record.get("utterance_id", ""),
+        "utterance_order": record.get("utterance_order", ""),
+        "classifier_token_order": record.get("classifier_token_order", ""),
+        "transcript_id": record.get("transcript_id", ""),
+        "determiner_type": compute_determiner_type(str(determiner)),
         "Classifier type": "",
         "Over use of Ge...": "",
     }
@@ -145,6 +185,10 @@ def build_rejected_row(record: dict[str, object]) -> dict[str, object]:
         "Determiner/Numbers": record.get("determiner"),
         "Determiner_POS": record.get("determiner_pos"),
         "Classifier": record.get("classifier"),
+        "utterance_id": record.get("utterance_id", ""),
+        "utterance_order": record.get("utterance_order", ""),
+        "classifier_token_order": record.get("classifier_token_order", ""),
+        "transcript_id": record.get("transcript_id", ""),
     }
 
 
@@ -186,7 +230,11 @@ def write_phase2_csv(
             u.part_of_speech AS gra,
             p.gloss AS determiner,
             p.part_of_speech AS determiner_pos,
-            c.gloss AS classifier
+            c.gloss AS classifier,
+            u.id AS utterance_id,
+            u.utterance_order AS utterance_order,
+            c.token_order AS classifier_token_order,
+            t.id AS transcript_id
         FROM token c
         JOIN token p
             ON p.utterance_id = c.utterance_id
@@ -224,6 +272,10 @@ def write_phase2_csv(
                     determiner,
                     determiner_pos,
                     classifier,
+                    utterance_id,
+                    utterance_order,
+                    classifier_token_order,
+                    transcript_id,
                 ) in cur:
                     record = {
                         "file_name": file_name,
@@ -236,6 +288,10 @@ def write_phase2_csv(
                         "determiner": determiner,
                         "determiner_pos": determiner_pos,
                         "classifier": classifier,
+                        "utterance_id": utterance_id,
+                        "utterance_order": utterance_order,
+                        "classifier_token_order": classifier_token_order,
+                        "transcript_id": transcript_id,
                     }
 
                     if not is_number_or_determiner(determiner_pos):

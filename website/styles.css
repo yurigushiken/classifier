@@ -1,0 +1,133 @@
+/* Hero Section */
+.hero-banner {
+  background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.hero-banner h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.hero-banner .subtitle {
+  font-size: 1.15rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+/* Stat badges */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.stat-card .stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: block;
+}
+
+.stat-card .stat-label {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Status badge */
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-review {
+  background: #f39c12;
+  color: #fff;
+}
+
+/* Colorblind-safe palette (Dark2) */
+:root {
+  --color-1: #1b9e77;
+  --color-2: #d95f02;
+  --color-3: #7570b3;
+  --color-4: #e7298a;
+  --color-5: #66a61e;
+  --color-6: #e6ab02;
+  --color-7: #a6761d;
+  --color-8: #666666;
+}
+
+/* Table styling */
+table.dataTable {
+  font-size: 0.9rem;
+}
+
+/* Column reference table */
+.column-ref {
+  font-size: 0.9rem;
+}
+
+.column-ref td:first-child {
+  font-family: monospace;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Section dividers */
+.section-divider {
+  border-top: 2px solid #ecf0f1;
+  margin: 2rem 0;
+}
+
+/* Pipeline flow diagram */
+.pipeline-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.pipeline-step {
+  background: #f8f9fa;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  font-weight: 600;
+  min-width: 140px;
+}
+
+.pipeline-step.active {
+  border-color: #3498db;
+  background: #ebf5fb;
+}
+
+.pipeline-arrow {
+  font-size: 1.5rem;
+  color: #adb5bd;
+}
+
+/* Callout refinements */
+.callout {
+  margin: 1rem 0;
+}

@@ -1,0 +1,93 @@
+---
+title: "Mandarin Classifier Acquisition Study"
+---
+
+::: {.hero-banner}
+
+# Mandarin Classifier Acquisition Study
+
+::: {.subtitle}
+Investigating numeral classifier development in Mandarin-speaking children using CHILDES corpus data and LLM-assisted annotation
+:::
+
+<span class="status-badge status-review">Awaiting PI Review</span>
+
+::: {.stat-grid}
+
+::: {.stat-card}
+[70,655]{.stat-number}
+[Classifier contexts]{.stat-label}
+:::
+
+::: {.stat-card}
+[18]{.stat-number}
+[CHILDES corpora]{.stat-label}
+:::
+
+::: {.stat-card}
+[33]{.stat-number}
+[Classifier types]{.stat-label}
+:::
+
+::: {.stat-card}
+[20/20]{.stat-number}
+[Sample annotation accuracy]{.stat-label}
+:::
+
+:::
+:::
+
+
+## Project Overview
+
+This study examines how Mandarin-speaking children acquire numeral classifiers, with particular focus on the **overgeneralization of the general classifier 个 (ge)**. Children acquiring Mandarin must learn which classifier conventionally pairs with which noun --- a well-documented developmental challenge.
+
+
+### Pipeline Architecture
+
+::: {.pipeline-flow}
+::: {.pipeline-step}
+**Phase 1**
+Corpus Inventory
+:::
+[&rarr;]{.pipeline-arrow}
+::: {.pipeline-step}
+**Phase 2**
+SQL Extraction
+:::
+[&rarr;]{.pipeline-arrow}
+::: {.pipeline-step .active}
+**Phase 3**
+LLM Annotation
+:::
+[&rarr;]{.pipeline-arrow}
+::: {.pipeline-step}
+**Phase 4**
+Analysis
+:::
+:::
+
+
+### Research Questions (Working)
+
+1. What is the distribution and frequency of classifier use in children's spontaneous speech?
+2. To what extent do children overgeneralize 个 (ge) to nouns requiring specific classifiers?
+3. How does classifier use change as a function of age?
+4. Do patterns differ by speaker role (child vs. adult input)?
+5. What is the relationship between numerosity contexts and classifier choice?
+
+::: {.callout-note}
+## Current Status
+The pipeline has completed Phases 1--2 (corpus inventory and deterministic extraction) and Phase 3 prompt validation. A **20-row random PI review sample** has been annotated with DeepSeek v3.2-speciale. The full 70,655-row production run is pending PI approval of the output schema and annotation quality.
+:::
+
+
+### What Needs PI Review
+
+| Item | Location |
+|------|----------|
+| Annotated 20-row sample with interactive table | [PI Review Sample](sample.qmd) |
+| Data profiling of the full 70,655-row dataset | [Data Profile](profiling.qmd) |
+| Extraction method, prompt design, and validation | [Methods](methods.qmd) |
+
+: {.striped .hover}

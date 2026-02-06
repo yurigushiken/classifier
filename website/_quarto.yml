@@ -1,0 +1,35 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Mandarin Classifier Acquisition"
+  navbar:
+    background: primary
+    left:
+      - href: index.qmd
+        text: Home
+      - href: sample.qmd
+        text: PI Review Sample
+      - href: profiling.qmd
+        text: Data Profile
+      - href: methods.qmd
+        text: Methods
+  page-footer:
+    left: "Mandarin Classifier Acquisition Study"
+    center: "Data: CHILDES (MacWhinney, 2000) via childes-db (Sanchez et al., 2019)"
+    right: "Pipeline v0.1"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    code-tools: true
+
+execute:
+  freeze: auto
+
+jupyter: python3

@@ -1,0 +1,115 @@
+---
+title: "Data Profile"
+---
+
+## Phase 2 Dataset Overview (70,655 rows)
+
+The Phase 2 extraction pulled all classifier contexts from monolingual Mandarin CHILDES corpora where the token immediately preceding a target classifier has a POS tag of `num*`, `det`, or `pro:dem`.
+
+```{python}
+#| label: setup
+#| echo: false
+import pandas as pd
+```
+
+::: {.callout-important}
+## Dataset Scale
+**70,655** classifier contexts extracted from **18** CHILDES corpora using **33** target classifiers. Age range: **1.2 -- 10.5 years**. Missing age: **12.4%** (8,793 rows).
+:::
+
+
+## Classifier Distribution
+
+The general classifier 个 dominates at **80.98%** of all instances. This extreme skew is consistent with the literature on both child language and adult Mandarin.
+
+```{python}
+#| label: classifier-dist
+#| echo: false
+classifier_data = pd.DataFrame({
+    "Classifier": ["个", "只", "本", "张", "次", "天", "块", "种", "条", "Others (25)"],
+    "Count": [57219, 3854, 1383, 1379, 983, 905, 760, 741, 470, 4961],
+    "Percentage": ["80.98%", "5.45%", "1.96%", "1.95%", "1.39%", "1.28%", "1.08%", "1.05%", "0.67%", "7.02%"],
+})
+
+from itables import show
+show(classifier_data, paging=False, searching=False, ordering=True, classes="display compact")
+```
+
+::: {.callout-note}
+## Implication
+The top 4 classifiers (个, 只, 本, 张) account for **90.3%** of all data. This means overuse-of-个 detection will be the dominant annotation task. Non-个 classifier errors are rare and harder to detect.
+:::
+
+
+## Speaker Distribution
+
+```{python}
+#| label: speaker-dist
+#| echo: false
+speaker_data = pd.DataFrame({
+    "Speaker Role": ["Target_Child", "Mother", "Investigator", "Teacher", "Adult", "Child (non-target)", "Father", "Other"],
+    "Count": [26226, 24631, 7009, 4145, 3757, 3315, 672, 900],
+    "Percentage": ["37.12%", "34.86%", "9.92%", "5.87%", "5.32%", "4.69%", "0.95%", "1.27%"],
+})
+
+show(speaker_data, paging=False, searching=False, ordering=True, classes="display compact")
+```
+
+::: {.callout-tip}
+## Child vs. Adult
+Target children produce **37.1%** of classifier contexts. Adult speech (all non-child roles) totals **~62.9%**, providing the acquisition input model for child-vs-adult comparison (RQ4).
+:::
+
+
+## Age Distribution
+
+Age ranges from 1.2 to 10.5 years (mean 4.2, median 4.0). Peak data density is at 3--4 years. **8,793 rows (12.4%)** are missing age metadata, primarily from ZhouAssessment and LiZhou corpora.
+
+```{python}
+#| label: age-dist
+#| echo: false
+age_data = pd.DataFrame({
+    "Age Bracket": ["1-2 yrs", "2-3 yrs", "3-4 yrs", "4-5 yrs", "5-6 yrs", "6-7 yrs", "7+ yrs"],
+    "Count": [2901, 9866, 14294, 12165, 12031, 8595, 2010],
+    "% of Age-Available": ["4.69%", "15.95%", "23.11%", "19.66%", "19.45%", "13.89%", "3.25%"],
+})
+
+show(age_data, paging=False, searching=False, ordering=True, classes="display compact")
+```
+
+
+## Determiner / Number Distribution
+
+Three values account for **84.6%** of all determiners:
+
+```{python}
+#| label: det-dist
+#| echo: false
+det_data = pd.DataFrame({
+    "Determiner": ["这 (this)", "一 (one)", "那 (that)", "几 (how many)", "两 (two)", "三 (three)", "Ordinals (第一, 第二...)", "Others"],
+    "Approx. %": ["45.98%", "30.22%", "8.35%", "2.12%", "2.10%", "1.45%", "~1.8%", "~8.0%"],
+    "determiner_type": ["demonstrative", "numeral", "demonstrative", "interrogative", "numeral", "numeral", "ordinal", "mixed"],
+})
+
+show(det_data, paging=False, searching=False, ordering=True, classes="display compact")
+```
+
+::: {.callout-note}
+## New: `determiner_type` Column
+We have added a computed `determiner_type` column that classifies each preceding word into: **demonstrative**, **numeral**, **interrogative**, **ordinal**, or **quantifier**. This directly supports RQ5 (numerosity contexts and classifier choice).
+:::
+
+
+## Data Quality Notes
+
+### OMITTED Prevalence
+~**23.4%** of rows (~16,520) have no noun following the classifier. These represent demonstrative/anaphoric uses (这个, 那个), bare counting (两个), and utterance-final ellipsis. The LLM returns `OMITTED` for these rows.
+
+### Duplicate Analysis
+**28.1%** of rows (19,880) share the same (Utterance, Classifier, Determiner) triple. The most common: "这 个" appears 1,555 times. These are not errors --- they reflect formulaic speech across speakers and sessions. Deduplication or speaker-level aggregation will be needed for statistical independence.
+
+### Multi-Classifier Utterances
+**34%** of rows come from utterances containing 2+ classifier instances (6,626 unique utterances generating multiple rows each). The Focus Constraint in the LLM prompt ensures each row is annotated independently.
+
+### Corpus Coverage
+The Zhou family of corpora (Zhou1/2/3, ZhouAssessment, ZhouNarratives, ZhouDinner) contributes ~40% of all data. Top 5 corpora cover 63%.
