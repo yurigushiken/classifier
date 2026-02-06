@@ -4,7 +4,7 @@ title: "PI Review Sample"
 
 ## Annotated Sample (n = 20)
 
-Hi Shan An — below is a random sample (seed = 99, n = 20) drawn from the 70,655 Phase 2 rows, annotated by **DeepSeek v3.2-speciale** (temperature 0.3, reasoning effort = medium). This sample was not used during prompt development and serves as an unseen sanity check of annotation format and consistency. It is not a gold-standard accuracy evaluation; all production results will require human verification.
+Hi Shan An, below is a random sample (seed = 99, n = 20) drawn from the 70,655 Phase 2 rows, annotated by **DeepSeek v3.2-speciale** (temperature 0.3, reasoning effort = medium). This sample was not used during prompt development and serves as an unseen sanity check of annotation format and consistency. It is not a gold-standard accuracy evaluation. All production results will require human verification.
 
 ::: {.callout-note}
 ## Reproducibility
@@ -13,7 +13,7 @@ This sample is fully reproducible from the Phase 2 extraction CSV using random s
 
 ::: {.callout-tip}
 ## Interactive Table
-Click column headers to sort, use the search box to filter, or scroll to browse. Key annotation columns are shown below; expand "Full Data" for all columns. [Download this sample as CSV](data/phase3_annotated_sample.csv).
+Click column headers to sort, use the search box to filter, or scroll to browse. Key annotation columns are shown below. Expand "Full Data" for all columns. [Download this sample as CSV](data/phase3_annotated_sample.csv).
 :::
 
 ```{python}
@@ -141,7 +141,7 @@ show(
 | `File Name` | Phase 2 (SQL) | CHILDES corpus file path |
 | `Collection_Type` | Phase 2 (SQL) | CHILDES collection name |
 | `Speaker_Code` | Phase 2 (SQL) | Speaker code from CHILDES (CHI, MOT, FAT, etc.) |
-| `Speaker_Role` | Phase 2 (SQL) | Speaker role from CHILDES metadata. **Target_Child** = focal child being studied; **Child** = non-target child (sibling, peer); other roles = adults present. |
+| `Speaker_Role` | Phase 2 (SQL) | Speaker role from CHILDES metadata. **Target_Child** = focal child being studied. **Child** = non-target child (sibling, peer). Other roles = adults present. |
 | `Age` | Phase 2 (SQL) | Target child's age in days at time of recording (CHILDES transcript metadata). This is always the focal child's age, even when the speaker is an adult. |
 | `Utterance` | Phase 2 (SQL) | Full utterance from CHILDES |
 | `%gra` | Phase 2 (SQL) | POS tag sequence for the utterance |
@@ -155,8 +155,8 @@ show(
 | `specific_semantic_class` | Computed | Deterministic classifier semantic class (e.g., general, animacy, shape, temporal_event) |
 | `age_years` | Computed | Age in decimal years (age_days / 365.25) |
 | `age_available` | Computed | Whether age metadata exists |
-| `Classifier type` | LLM (Phase 3) | Legacy column; use `classifier_type` instead |
-| `Over use of Ge...` | LLM (Phase 3) | Legacy column; use `overuse_of_ge` instead |
+| `Classifier type` | LLM (Phase 3) | Legacy column. Use `classifier_type` instead |
+| `Over use of Ge...` | LLM (Phase 3) | Legacy column. Use `overuse_of_ge` instead |
 | `identified_noun` | LLM (Phase 3) | The noun modified by the classifier, or OMITTED |
 | `conventional_classifier` | LLM (Phase 3) | Standard adult classifier for this noun (pinyin) |
 | `conventional_classifier_zh` | LLM (Phase 3) | Standard adult classifier (Simplified Chinese) |

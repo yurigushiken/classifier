@@ -128,7 +128,7 @@ We have added a computed `determiner_type` column that classifies each preceding
 Roughly **23.4%** of rows (about 16,520) have no noun following the classifier. These represent demonstrative/anaphoric uses (这个, 那个), bare counting (两个), and utterance-final ellipsis. The LLM returns `OMITTED` for these rows.
 
 ### Duplicate Analysis
-**28.1%** of rows (19,880) share the same (Utterance, Classifier, Determiner) triple. The most common, "这 个", appears 1,555 times. These are not errors; they reflect formulaic speech across speakers and sessions. Deduplication or speaker-level aggregation will be needed for statistical independence.
+**28.1%** of rows (19,880) share the same (Utterance, Classifier, Determiner) triple. The most common, "这 个", appears 1,555 times. These are not errors. They reflect formulaic speech across speakers and sessions. Deduplication or speaker-level aggregation will be needed for statistical independence.
 
 ### Multi-Classifier Utterances
 **11.4%** of rows (8,045) come from utterances containing 2+ classifier instances (3,735 unique utterances generating multiple rows each). The Focus Constraint in the LLM prompt ensures each row is annotated independently.

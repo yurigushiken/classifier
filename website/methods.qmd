@@ -7,7 +7,7 @@ title: "Methods"
 - **Corpus:** CHILDES / TalkBank (MacWhinney, 2000)
 - **Access:** childes-db (Sanchez et al., 2019), programmatic SQL access
 - **Database version:** 2021.1
-- **Language:** Mandarin Chinese (zho); excludes Cantonese (yue) and Min Nan (nan)
+- **Language:** Mandarin Chinese (zho). Excludes Cantonese (yue) and Min Nan (nan)
 - **Collection filter:** `collection_name = 'Chinese'` (monolingual only)
 
 
@@ -48,7 +48,7 @@ WHERE ... AND c.gloss IN (classifier_list)
 | Model | Provider | Result |
 |-------|----------|--------|
 | DeepSeek v3.2-speciale | OpenRouter | **Recommended for production** |
-| GPT-5.2-Codex | OpenRouter | Equivalent QA/completeness on pilot samples; minor adj-in-noun issue |
+| GPT-5.2-Codex | OpenRouter | Equivalent QA/completeness on pilot samples. Minor adj-in-noun issue |
 | Kimi k2.5 | OpenRouter | Equivalent QA/completeness on pilot samples |
 
 : {.striped}
@@ -115,9 +115,9 @@ The table below maps the original PI spreadsheet vision to the current reproduci
 | `filename` | `File Name` | Same meaning (CHILDES transcript path). |
 | `line` | `utterance_order`, `classifier_token_order` | More precise than a single line number. |
 | `utterance` | `Utterance` | Same meaning. |
-| `个, 条, 只, ... , 碗` (wide classifier columns) | `Classifier` (long format) | Long format is canonical; each row = one classifier instance. |
+| `个, 条, 只, ... , 碗` (wide classifier columns) | `Classifier` (long format) | Long format is canonical. Each row = one classifier instance. |
 | `total_clf` | Derived from `utterance_id` grouping | Computable deterministically as count per utterance. |
-| `Age` | `Age`, `age_years`, `age_available` | `Age` is original days; years + missingness are computed fields. |
+| `Age` | `Age`, `age_years`, `age_available` | `Age` is original days. Years and missingness are computed fields. |
 | `%gra` | `%gra` | Same meaning (POS sequence). |
 | `Determiner/Numbers` | `Determiner/Numbers`, `determiner_type` | Added typed semantic label for analysis. |
 | `Classifier` | `Classifier` | Same meaning. |

@@ -78,7 +78,7 @@ This study examines how Mandarin-speaking children acquire numeral classifiers, 
 
 ::: {.callout-note}
 ## Current Status
-The pipeline has completed Phases 1 and 2 (corpus inventory and deterministic extraction) and Phase 3 prompt validation. A **20-row random PI review sample** has been annotated with DeepSeek v3.2-speciale. The full 70,655-row production run is pending PI approval of the output schema and annotation quality. Estimated cost for the full run is **$120 to $140**. All production results will require human verification; the pipeline includes automated flags to prioritize rows most likely to need review.
+The pipeline has completed Phases 1 and 2 (corpus inventory and deterministic extraction) and Phase 3 prompt validation. A **20-row random PI review sample** has been annotated with DeepSeek v3.2-speciale. The full 70,655-row production run is pending PI approval of the output schema and annotation quality. Estimated cost for the full run is **$120 to $140**. All production results will require human verification. The pipeline includes automated flags to prioritize rows most likely to need review.
 :::
 
 
